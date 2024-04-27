@@ -82,6 +82,28 @@
         p {
             font-size: 18px;
         }
+
+        /* FAQ Styles */
+        .faq {
+            margin-top: 40px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            display: none;
+        }
+
+        .faq-answer.show {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -143,6 +165,29 @@
     </div>
    
     <div class="section">
+        <h2><span class="section-container">Preguntas Frecuentes</span></h2>
+        <div class="faq">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">¿Cómo puedo proteger mi dispositivo contra el malware?</div>
+                <div class="faq-answer">Existen varias medidas que puedes tomar para proteger tu dispositivo contra el malware, como mantener tu software actualizado, utilizar programas antivirus de confianza, evitar hacer clic en enlaces sospechosos y descargar aplicaciones solo desde fuentes confiables.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">¿Cuál es la diferencia entre un análisis estático y dinámico de archivos?</div>
+                <div class="faq-answer">Un análisis estático de archivos examina el contenido de un archivo sin ejecutarlo, mientras que un análisis dinámico ejecuta el archivo en un entorno controlado para observar su comportamiento en tiempo real.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">¿Por qué es importante proteger mi correo electrónico?</div>
+                <div class="faq-answer">Proteger tu correo electrónico es crucial porque es una de las principales formas en que los ciberdelincuentes intentan acceder a tu información personal o comprometer la seguridad de tus cuentas en línea.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">¿Debería usar un antivirus en mi dispositivo móvil?</div>
+                <div class="faq-answer">Usar un antivirus en PC es crucial, pero en dispositivos móviles no es necesario; es mejor subir los archivos a VirusTotal antes de ejecutarlos.</div>
+            </div>
+            <!-- Add more FAQ items as needed -->
+        </div>
+    </div>
+
+    <div class="section">
         <h2><span class="section-container">Información adicional</span> </h2> 
         <p>Gracias por visitar LeoShield: Tu Escudo Contra el Malware.</p>
         <p>Si necesitas ayuda con algún análisis, no dudes en contáctarnos por <a id="discord" href="https://discord.com/users/942945514628988958">Discord</a> </p>
@@ -152,6 +197,17 @@
         <p>© 2024 LeoShield. Todos los derechos reservados.</p>
     </footer>
 </div>
+
+<script>
+    function toggleFAQ(element) {
+        var answer = element.nextElementSibling;
+        if (answer.classList.contains('show')) {
+            answer.classList.remove('show');
+        } else {
+            answer.classList.add('show');
+        }
+    }
+</script>
 
 </body>
 </html>
