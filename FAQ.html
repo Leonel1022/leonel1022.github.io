@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ - Leoshield</title>
+    <title>FAQ - LeoShield</title>
     <style>
         body {
             background-color: #171717;
@@ -47,6 +47,7 @@
 
         .answer p {
             margin: 0;
+            font-size: 18px;
         }
 
         .pregunta.active .answer {
@@ -59,11 +60,20 @@
             font-size: 12px;
             color: #888;
         }
+
+        a {
+            text-decoration: none;
+            color: darkorange;
+        }
+
+        .faq-title {
+            color: orange;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 style="text-align: center;">FAQ - Ciberseguridad</h1>
+        <h1 style="text-align: center;"><span class="faq-title">FAQ</span> - LeoShield</h1>
         <div class="faq">
             <div class="pregunta">
                 <h2 class="pregunta-title">¿Cómo proteger mi información personal en línea?</h2>
@@ -72,21 +82,59 @@
                 </div>
             </div>
             <div class="pregunta">
-                <h2 class="pregunta-title">¿Qué debo hacer si sospecho que mi cuenta ha sido comprometida?</h2>
+                <h2 class="pregunta-title">¿Cómo puedo comprobar que mi contraseña es fuerte?</h2>
                 <div class="answer">
-                    <p>Si sospechas que tu cuenta ha sido comprometida, debes cambiar inmediatamente la contraseña de esa cuenta y de cualquier otra cuenta que utilice la misma contraseña. Además, contacta con el servicio de soporte de la plataforma o servicio afectado para informar del incidente y seguir sus recomendaciones.</p>
+                    <p>Si tienes dudas sobre qué tan fuerte es tu contraseña, puedes comprobarlo usando el <a href="https://bitwarden.com/password-strength/" target="_blank">password tester de Bitwarden</a>.</p>
+                </div>
+            </div>    
+            <div class="pregunta">
+                <h2 class="pregunta-title">¿Qué debo hacer en el caso de que mi cuenta de correo sea filtrada?</h2>
+                <div class="answer">
+                    <p>Si sospechas que tu cuenta de correo electrónico ha sido comprometida o filtrada, recomiendo encarecidamente migrar a otro correo. Si no lo haces, quedas muy vulnerable a correos phishing, fraudes e incluso, en el peor de los casos, robo de cuenta.</p>
                 </div>
             </div>
             <div class="pregunta">
                 <h2 class="pregunta-title">¿Cómo reconocer correos electrónicos de phishing?</h2>
                 <div class="answer">
                     <p>Los correos electrónicos de phishing suelen contener enlaces sospechosos, errores gramaticales o de ortografía, solicitudes urgentes de información personal o financiera, y remitentes desconocidos o que no coinciden con el dominio del servicio o empresa que dicen representar.</p>
+                    <p>Puedes aprender a identificar correos de phishing en <a href="https://phishingquiz.withgoogle.com/" target="_blank">Phishing Quiz</a>, que es parte de Google.</p>
                 </div>
             </div>
+            <div class="pregunta">
+                <h2 class="pregunta-title">¿Have I Been Pwned (HIBP) recolecta los correos a analizar?</h2>
+                <div class="answer">
+                    <p>No, Have I Been Pwned (HIBP) no recolecta los correos que analizas en busca de filtración de datos. Los únicos correos que almacena de manera segura son los que ya fueron filtrados y encontrados.</p>
+                </div>   
+            </div>
+            <div class="pregunta">
+                <h2 class="pregunta-title">¿Qué servicio de almacenamiento en la nube puedo usar?</h2>
+                <div class="answer">
+                    <p>Hay muchos servicios de almacenamiento en la nube. Recomiendo usar <a href="https://mega.nz/" target="_blank">MEGA</a>. El plan gratuito te ofrece 20GB de almacenamiento.
+                        <br>MEGA utiliza cifrado de extremo a extremo (E2EE), lo que significa que los datos salen cifrados desde el dispositivo.
+                        <br>Solo recopila metadatos.</p>
+                </div>
+            </div>
+            <div class="pregunta">
+                <h2 class="pregunta-title">¿Debería dejar de usar la piratería?</h2>
+                <div class="answer">
+                    <p>Absolutamente sí. Dejar de usar software pirata es importante por varias razones, que abarcan desde la seguridad y el rendimiento de tus dispositivos hasta consideraciones legales y éticas.
+                        <br>Pueden contener malware, robo de datos, etc.</p>
+                </div>
+            </div>    
+            <div class="pregunta">
+                <h2 class="pregunta-title">Si VirusTotal no detecta nada, ¿significa que es seguro?</h2>
+                <div class="answer">
+                    <p>No. Existen los falsos positivos (FP) y los falsos negativos (FN). Los falsos positivos son cuando los motores lo clasifican como malicioso cuando no lo es.
+                        <br>Y los falsos negativos son cuando los motores no detectan algo que sí es malicioso.
+                        <br>Aquí unos ejemplos:
+                        <br><a href="https://i.imgur.com/vPfV6TB.png" target="_blank">JaffaVPN.exe FP</a>  
+                        <br><a href="https://i.imgur.com/uldmTmf.png" target="_blank">2024-05-07-11.zip FN</a></p>
+                </div>
+            </div>    
         </div>
 
         <div class="rights">
-            <p>© 2024 Leoshield. Todos los derechos reservados.</p>
+            <p>© 2024 LeoShield. Todos los derechos reservados.</p>
         </div>
     </div>
 
