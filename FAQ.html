@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Leoshield</title>
+    <style>
+        body {
+            background-color: #171717;
+            color: #ddd;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq {
+            margin-top: 20px;
+        }
+
+        .pregunta {
+            background-color: #2d2d2d;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .pregunta-title {
+            margin: 0;
+            font-size: 20px;
+            font-weight: bold;
+            padding-bottom: 5px;
+        }
+
+        .answer {
+            display: none;
+            padding: 15px;
+            background-color: #2d2d2d;
+            border-radius: 8px;
+        }
+
+        .answer p {
+            margin: 0;
+        }
+
+        .pregunta.active .answer {
+            display: block;
+        }
+
+        .rights {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">FAQ - Ciberseguridad</h1>
+        <div class="faq">
+            <div class="pregunta">
+                <h2 class="pregunta-title">¿Cómo proteger mi información personal en línea?</h2>
+                <div class="answer">
+                    <p>Para proteger tu información personal en línea, es recomendable utilizar contraseñas fuertes y únicas para cada cuenta, activar la autenticación de dos factores siempre que sea posible, evitar el uso de redes Wi-Fi públicas no seguras y mantener el software y los sistemas operativos actualizados.</p>
+                </div>
+            </div>
+            <div class="pregunta">
+                <h2 class="pregunta-title">¿Qué debo hacer si sospecho que mi cuenta ha sido comprometida?</h2>
+                <div class="answer">
+                    <p>Si sospechas que tu cuenta ha sido comprometida, debes cambiar inmediatamente la contraseña de esa cuenta y de cualquier otra cuenta que utilice la misma contraseña. Además, contacta con el servicio de soporte de la plataforma o servicio afectado para informar del incidente y seguir sus recomendaciones.</p>
+                </div>
+            </div>
+            <div class="pregunta">
+                <h2 class="pregunta-title">¿Cómo reconocer correos electrónicos de phishing?</h2>
+                <div class="answer">
+                    <p>Los correos electrónicos de phishing suelen contener enlaces sospechosos, errores gramaticales o de ortografía, solicitudes urgentes de información personal o financiera, y remitentes desconocidos o que no coinciden con el dominio del servicio o empresa que dicen representar.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="rights">
+            <p>© 2024 Leoshield. Todos los derechos reservados.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const preguntas = document.querySelectorAll(".pregunta");
+
+            preguntas.forEach(pregunta => {
+                pregunta.addEventListener("click", function() {
+                    // Toggle 'active' class to expand/collapse answer
+                    pregunta.classList.toggle("active");
+                });
+            });
+        });
+    </script>
+</body>
+</html>
