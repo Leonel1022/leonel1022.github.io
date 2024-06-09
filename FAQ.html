@@ -23,6 +23,17 @@
             margin-top: 20px;
         }
 
+        .categoria {
+            margin-top: 30px;
+        }
+
+        .categoria-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: orange;
+            margin-bottom: 10px;
+        }
+
         .pregunta {
             background-color: #2d2d2d;
             padding: 15px;
@@ -65,79 +76,164 @@
             text-decoration: none;
             color: darkorange;
         }
+        a:hover{
+           text-decoration: underline;
+
+        }
 
         .faq-title {
             color: orange;
+        }
+
+        .indice {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .indice a {
+            color: darkorange;
+            text-decoration: none;
+        }
+
+        .indice a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1 style="text-align: center;"><span class="faq-title">FAQ</span> - LeoShield</h1>
+        
+        <div class="indice">
+            <h2>Índice de Contenidos</h2>
+            <ul>
+                <li><a href="#proteccion">Protección de Información Personal</a></li>
+                <li><a href="#amenazas">Amenazas Cibernéticas</a></li>
+                <li><a href="#herramientas">Herramientas y Servicios</a></li>
+                <li><a href="#buenas-practicas">Buenas Prácticas</a></li>
+                <li><a href="#informacion">Informacion</a></li>
+            </ul>
+        </div>
+
         <div class="faq">
-            <div class="pregunta">
-                <h2 class="pregunta-title">¿Cómo proteger mi información personal en línea?</h2>
-                <div class="answer">
-                    <p>Para proteger tu información personal en línea, es recomendable utilizar contraseñas fuertes y únicas para cada cuenta, activar la autenticación de dos factores siempre que sea posible, evitar el uso de redes Wi-Fi públicas no seguras y mantener el software y los sistemas operativos actualizados.</p>
+            <!-- Categoría: Protección de Información Personal -->
+            <div id="proteccion" class="categoria">
+                <h2 class="categoria-title">Protección de Información Personal</h2>
+
+                <div class="pregunta">
+                    <h2 class="pregunta-title">¿Cómo proteger mi información personal en línea?</h2>
+                    <div class="answer">
+                        <p>Para proteger tu información personal en línea, es recomendable utilizar contraseñas fuertes y únicas para cada cuenta, activar la autenticación de dos factores siempre que sea posible, evitar el uso de redes Wi-Fi públicas no seguras y mantener el software y los sistemas operativos actualizados.</p>
+                    </div>
+                </div>
+
+                <div class="pregunta">
+                    <h2 class="pregunta-title">¿Cómo puedo comprobar que mi contraseña es fuerte?</h2>
+                    <div class="answer">
+                        <p>Si tienes dudas sobre qué tan fuerte es tu contraseña, puedes comprobarlo usando el <a href="https://bitwarden.com/password-strength/" target="_blank">password tester de Bitwarden</a>.</p>
+                    </div>
+                </div>
+
+                <div class="pregunta">
+                    <h2 class="pregunta-title">¿Qué debo hacer en el caso de que mi cuenta de correo sea filtrada?</h2>
+                    <div class="answer">
+                        <p>Si sospechas que tu cuenta de correo electrónico ha sido comprometida o filtrada, recomiendo encarecidamente migrar a otro correo. Si no lo haces, quedas muy vulnerable a correos phishing, fraudes e incluso, en el peor de los casos, robo de cuenta.</p>
+                    </div>
+                </div>
+
+                <div class="pregunta">
+                    <h2 class="pregunta-title">¿Cómo reconocer correos electrónicos de phishing?</h2>
+                    <div class="answer">
+                        <p>Los correos electrónicos de phishing suelen contener enlaces sospechosos, errores gramaticales o de ortografía, solicitudes urgentes de información personal o financiera, y remitentes desconocidos o que no coinciden con el dominio del servicio o empresa que dicen representar.</p>
+                        <p>Puedes aprender a identificar correos de phishing en <a href="https://phishingquiz.withgoogle.com/" target="_blank">Phishing Quiz</a>, que es parte de Google.</p>
+                    </div>
                 </div>
             </div>
-            <div class="pregunta">
-                <h2 class="pregunta-title">¿Cómo puedo comprobar que mi contraseña es fuerte?</h2>
-                <div class="answer">
-                    <p>Si tienes dudas sobre qué tan fuerte es tu contraseña, puedes comprobarlo usando el <a href="https://bitwarden.com/password-strength/" target="_blank">password tester de Bitwarden</a>.</p>
-                </div>
-            </div>    
-            <div class="pregunta">
-                <h2 class="pregunta-title">¿Qué debo hacer en el caso de que mi cuenta de correo sea filtrada?</h2>
-                <div class="answer">
-                    <p>Si sospechas que tu cuenta de correo electrónico ha sido comprometida o filtrada, recomiendo encarecidamente migrar a otro correo. Si no lo haces, quedas muy vulnerable a correos phishing, fraudes e incluso, en el peor de los casos, robo de cuenta.</p>
-                </div>
-            </div>
-            <div class="pregunta">
-                <h2 class="pregunta-title">¿Cómo reconocer correos electrónicos de phishing?</h2>
-                <div class="answer">
-                    <p>Los correos electrónicos de phishing suelen contener enlaces sospechosos, errores gramaticales o de ortografía, solicitudes urgentes de información personal o financiera, y remitentes desconocidos o que no coinciden con el dominio del servicio o empresa que dicen representar.</p>
-                    <p>Puedes aprender a identificar correos de phishing en <a href="https://phishingquiz.withgoogle.com/" target="_blank">Phishing Quiz</a>, que es parte de Google.</p>
-                </div>
-            </div>
-            <div class="pregunta">
-                <h2 class="pregunta-title">¿Have I Been Pwned (HIBP) recolecta los correos a analizar?</h2>
-                <div class="answer">
-                    <p>No, Have I Been Pwned (HIBP) no recolecta los correos que analizas en busca de filtración de datos. Los únicos correos que almacena de manera segura son los que ya fueron filtrados y encontrados.</p>
-                </div>   
-            </div>
-            <div class="pregunta">
-                <h2 class="pregunta-title">¿Qué servicio de almacenamiento en la nube puedo usar?</h2>
-                <div class="answer">
-                    <p>Hay muchos servicios de almacenamiento en la nube. Recomiendo usar <a href="https://mega.nz/" target="_blank">MEGA</a>. El plan gratuito te ofrece 20GB de almacenamiento.
-                        <br>MEGA utiliza cifrado de extremo a extremo (E2EE), lo que significa que los datos salen cifrados desde el dispositivo.
-                        <br>Solo recopila metadatos.</p>
+
+            <!-- Categoría: Amenazas Cibernéticas -->
+            <div id="amenazas" class="categoria">
+                <h2 class="categoria-title">Amenazas Cibernéticas</h2>
+
+                <div class="pregunta">
+                    <h2 class="pregunta-title">¿Cuáles son las amenazas cibernéticas más comunes?</h2>
+                    <div class="answer">
+                        <p>Las amenazas ciberneticas mas comunes son las siguientes.
+                            Malware: Software malicioso como virus, troyanos, ransomware y spyware. <br> <br>
+                            Phishing: Técnicas de ingeniería social para obtener información confidencial como contraseñas y números de tarjetas de crédito. <br> <br>
+                            Ataques DDoS (Distributed Denial of Service): Inundar un servidor o red con tráfico para interrumpir el servicio. <br> <br>
+                            Ataques de fuerza bruta: Intentar adivinar contraseñas mediante el uso de combinaciones masivas de caracteres. <br> <br>
+                            Exploits de vulnerabilidades: Aprovechar fallos en el software para ganar acceso no autorizado.
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="pregunta">
-                <h2 class="pregunta-title">¿Debería dejar de usar la piratería?</h2>
-                <div class="answer">
-                    <p>Absolutamente sí. Dejar de usar software pirata es importante por varias razones, que abarcan desde la seguridad y el rendimiento de tus dispositivos hasta consideraciones legales y éticas.
-                        <br>Pueden contener malware, robo de datos, etc.</p>
+
+            <!-- Categoría: Herramientas y Servicios -->
+            <div id="herramientas" class="categoria">
+                <h2 class="categoria-title">Herramientas y Servicios</h2>
+
+                <div class="pregunta">
+                    <h2 class="pregunta-title">¿Qué servicio de almacenamiento en la nube puedo usar?</h2>
+                    <div class="answer">
+                        <p>Hay muchos servicios de almacenamiento en la nube. Recomiendo usar <a href="https://mega.nz/" target="_blank">MEGA</a>. El plan gratuito te ofrece 20GB de almacenamiento.
+                            <br>MEGA utiliza cifrado de extremo a extremo (E2EE), lo que significa que los datos salen cifrados desde el dispositivo.
+                            <br>Solo recopila metadatos.
+                        </p>
+
+                    </div>
+                    
                 </div>
-            </div>    
-            <div class="pregunta">
-                <h2 class="pregunta-title">Si VirusTotal no detecta nada, ¿significa que es seguro?</h2>
-                <div class="answer">
-                    <p>No. Existen los falsos positivos (FP) y los falsos negativos (FN). Los falsos positivos son cuando los motores lo clasifican como malicioso cuando no lo es.
-                        <br>Y los falsos negativos son cuando los motores no detectan algo que sí es malicioso.
-                        <br>Aquí unos ejemplos:
-                        <br><a href="https://i.imgur.com/vPfV6TB.png" target="_blank">JaffaVPN.exe FP</a>  
-                        <br><a href="https://i.imgur.com/uldmTmf.png" target="_blank">2024-05-07-11.zip FN</a></p>
+                <div class="pregunta">
+                    <h2 class="pregunta-title">¿Have I Been Pwned (HIBP) recolecta los correos a analizar?</h2>
+                    <div class="answer">
+                        <p>No, Have I Been Pwned (HIBP) no recolecta los correos que analizas en busca de filtración de datos. Los únicos correos que almacena de manera segura son los que ya fueron filtrados y encontrados.</p>
+                    </div>
                 </div>
-            </div>    
+              
+            </div>
+
+            <!-- Categoría: Buenas Prácticas -->
+            <div id="buenas-practicas" class="categoria">
+                <h2 class="categoria-title">Buenas Prácticas</h2>
+
+                <div class="pregunta">
+                    <h2 class="pregunta-title">¿Debería dejar de usar la piratería?</h2>
+                    <div class="answer">
+                        <p>Absolutamente sí. Dejar de usar software pirata es importante por varias razones, que abarcan desde la seguridad y el rendimiento de tus dispositivos hasta consideraciones legales y éticas.
+                            <br>Pueden contener malware, robo de datos, etc.</p>
+                    </div>
+                </div>
+
+                <div class="pregunta">
+                    <h2 class="pregunta-title">Si VirusTotal no detecta nada, ¿significa que es seguro?</h2>
+                    <div class="answer">
+                        <p>No. Existen los falsos positivos (FP) y los falsos negativos (FN). Los falsos positivos son cuando los motores lo clasifican como malicioso cuando no lo es.
+                            <br>Y los falsos negativos son cuando los motores no detectan algo que sí es malicioso.
+                            <br>Aquí unos ejemplos:
+                            <br><a href="https://i.imgur.com/vPfV6TB.png" target="_blank">JaffaVPN.exe FP</a>  
+                            <br><a href="https://i.imgur.com/uldmTmf.png" target="_blank">2024-05-07-11.zip FN</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categoría: Información General -->
+            <div id="informacion" class="categoria">
+                <h2 class="categoria-title">Información General</h2>
+                <div class="pregunta">
+                    <h2 class="pregunta-title">¿Qué es el cifrado y por qué es importante?</h2>
+                    <div class="answer">
+                        <p>El cifrado es el proceso de convertir datos en un formato codificado que solo puede ser leído por alguien que tenga la clave de descifrado. Es importante porque protege la información confidencial y sensible de ser accesible o legible en caso de que sea interceptada.</p>
+                    </div>
+                </div>
+                
+            </div>
         </div>
 
         <div class="rights">
             <p>© 2024 LeoShield. Todos los derechos reservados.</p>
         </div>
     </div>
-
+    
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const preguntas = document.querySelectorAll(".pregunta");
