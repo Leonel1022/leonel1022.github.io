@@ -6,86 +6,96 @@
     <title>LeoShield</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #222;
-            color: #f9f9f9;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            color: #fff;
+        header {
+            background-color: #1c1c1c;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #333;
         }
 
-        a {
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #1f1f1f;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        nav a {
+            color: #ffffff;
+            padding: 14px 20px;
             text-decoration: none;
-            color: #007bff;
-            font-size: 18px
+            font-weight: bold;
+            transition: color 0.3s ease;
         }
 
-        a:hover {
-            color: #0056b3;
+        nav a:hover {
+            color: #ff9800;
         }
 
         .container {
-            max-width: 800px;
-            margin: 20px auto;
+            max-width: 1000px;
+            margin: 40px auto;
             padding: 0 20px;
-            background-color: #333;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
 
         .section {
-            margin-bottom: 40px;
+            background-color: #1c1c1c;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Estilo específico para el primer h2 dentro de .section */
+        .section:first-of-type h2 {
+            color: #ffffff; /* Color blanco */
         }
 
         .section h2 {
             font-size: 1.8em;
             margin-bottom: 10px;
+            color:  #ff9800;
         }
 
         .section a {
+            color: #82b1ff;
+            font-size: 1.1em;
             display: block;
-            margin-bottom: 10px;
+            margin: 10px 0;
+            transition: color 0.3s ease;
+        }
+
+        .section a:hover {
+            color: #ff9800;
         }
 
         .section p {
             margin-bottom: 10px;
-        }
-
-        .section:last-child {
-            margin-bottom: 0;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #ccc;
-        }
-
-        .section-container {
-            display: inline-block;
-            background-color: #555;
-            padding: 10px 20px;
-            transition: all 0.3s ease;
-            border-radius: 5px; 
-        }
-
-        .section-container:hover {
-            transform: scale(1.1);
-            background-color: #777;
-        }
-
-        p {
+            line-height: 1.6;
             font-size: 18px;
         }
 
-        /* FAQ Styles */
-        .faq {
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #1c1c1c;
+            color: #ffffff;
+            border-top: 2px solid #333;
             margin-top: 40px;
+            font-size: 18px;
         }
 
         .faq-item {
@@ -95,83 +105,106 @@
         .faq-question {
             font-weight: bold;
             cursor: pointer;
+            padding: 10px;
+            background-color: #333;
+            color: #ffffff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #555;
         }
 
         .faq-answer {
             display: none;
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            margin-top: 5px;
+            background-color: #2a2a2a;
+            color: #e0e0e0;
         }
 
         .faq-answer.show {
             display: block;
         }
+           /* Media query para dispositivos móviles */
+           @media screen and (max-width: 768px) {
+            nav {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                letter-spacing: 2.3px;
+            }
 
-        .FAQ:hover{
-            color: #ff7300;
-
+            nav a {
+                padding: 10px 20px;
+            }
         }
+         
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="section">
-        <h1> <span class="section-container2">Hola,soy leo</span></h1>
-        <P>Soy un entusiasta de la programación y un estudiante dedicado de ciberseguridad. Me apasiona aplicar mis habilidades en estos campos para resolver problemas y crear soluciones innovadoras. Actualmente, estoy profundizando mis conocimientos en ambas áreas, para desarrollar una sólida base de conocimientos y práctica</P>
-        <p>En esta página encontrarás recursos y herramientas para proteger tus dispositivos contra el malware.</p>
+<header>
+    <h1>LeoShield</h1>
+</header>
 
+<nav>
+    <a href="#about">Sobre mí</a>
+    <a href="#recommended">Programas Recomendados</a>
+    <a href="#file-analysis">Análisis de Archivos</a>
+    <a href="#link-analysis">Análisis de Links</a>
+    <a href="#email-filter">Filtración de Email</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contacto</a>
+</nav>
+
+<div class="container">
+    <div id="about" class="section">
+        <h2>Hola, soy Leo</h2>
+        <p>Soy un entusiasta de la programación y un estudiante dedicado de ciberseguridad. Me apasiona aplicar mis habilidades en estos campos para resolver problemas y crear soluciones innovadoras. Actualmente, estoy profundizando mis conocimientos en ambas áreas para desarrollar una sólida base de conocimientos y práctica.</p>
+        <p>En esta página encontrarás recursos y herramientas para proteger tus dispositivos contra el malware.</p>
     </div>
 
-    <div class="section">
-        <h2><span class="section-container">Programas recomendados y guías</span></h2>
+    <div id="recommended" class="section">
+        <h2>Programas recomendados y guías</h2>
         <a href="https://www.maldroid.dev/NoMalware" target="_blank">Guía de Maldroid.dev</a>
         <a href="https://kaspersky.com/downloads/free-antivirus" target="_blank">Kaspersky Antivirus</a>
         <a href="https://ublockorigin.com/" target="_blank">uBlock Origin</a>
         <a href="https://chromewebstore.google.com/detail/malwarebytes-browser-guar/ihcjicgdanjaechkgeegckofjjedodee" target="_blank">Malwarebytes Browser Guard</a>
     </div>
 
-    <div class="section">
-        <h2><span class="section-container">Análisis de archivos/malware</span></h2>
+    <div id="file-analysis" class="section">
+        <h2>Análisis de archivos/malware</h2>
         <a href="https://www.virustotal.com/gui/home/upload" target="_blank">VirusTotal</a>
         <a href="https://opentip.kaspersky.com" target="_blank">Kaspersky OpenTip</a>
-     <!---
-        <a href="https://tria.ge/login?return_to=%2Fdashboard" target="_blank">triage</a>
-        <a href="https://www.hybrid-analysis.com/" target="_blank">Hybrid Analysis</a>
-        <a href="https://www.filescan.io/scan" target="_blank">FileScan</a>--> 
     </div>
 
-    <div class="section">
-        <h2><span class="section-container">Análisis de sitios web/links</span></h2>
+    <div id="link-analysis" class="section">
+        <h2>Análisis de sitios web/links</h2>
         <a href="https://www.virustotal.com/gui/home/url" target="_blank">VirusTotal</a>
         <a href="https://opentip.kaspersky.com/?tab=lookup" target="_blank">Kaspersky OpenTip (URL)</a>
-        <!--
-        <a href="https://radar.cloudflare.com/scan" target="_blank">Cloudflare Radar</a>
-        <a href="https://phish.report/analysis" target="_blank">Phish report</a>
-        <a href="https://sitereport.netcraft.com/" target="_blank">Netcraft SiteReport</a> --> 
     </div>
 
-    <div class="section">
-        <h2><span class="section-container">Filtración de correo electrónico</span></h2>
+    <div id="email-filter" class="section">
+        <h2>Filtración de correo electrónico</h2>
         <a href="https://www.malwarebytes.com/digital-footprint" target="_blank">Malwarebytes Digital Footprint</a>
         <a href="https://haveibeenpwned.com/" target="_blank">Have I Been Pwned</a>
     </div>
 
     <div class="section">
-        <h2><span class="section-container">Explicación</span></h2>
+        <h2>Explicación</h2>
         <p>En esta sección, se explican brevemente las herramientas mencionadas anteriormente.</p>
-        <p>* https://www.virustotal.com/ - Todo el mundo conoce este,<br> el lugar principal para cargar cualquier tipo de malware que encuentres para obtener un análisis rápido del archivo,<br> realiza un análisis estático del archivo con más de 70 antivirus diferentes. (No es necesario registrarse, tamaño máximo de archivo de 650 MB) </p>
-        <br>
-        <br>
-        <p>* https://opentip.kaspersky.com/ - No es un sitio muy conocido pero sí uno de los mejores,<br> es un sitio web similar a VirusTotal que realiza un análisis estático del archivo así como un análisis dinámico que es lo que lo diferencia de VirusTotal. . (No es necesario registrarse, tamaño máximo de archivo de 256 MB)</p>
-          <br>
-          <br>
-        <p>* https://www.virustotal.com/gui/home/url: escanea el enlace con más de 90 motores. (No es necesario registrarse)</p>
-        <br>
-        <br>
-        <p>* https://opentip.kaspersky.com/?tab=lookup: compara los enlaces con la base de datos de Kaspersky de sitios maliciosos/sitios de phishing, etc. (No es necesario registrarse)</p>
+        <p>* <a href="https://www.virustotal.com/">VirusTotal</a> - Realiza un análisis estático del archivo con más de 70 antivirus diferentes (sin necesidad de registro, tamaño máximo de archivo de 650 MB).</p>
+        <p>* <a href="https://opentip.kaspersky.com/">Kaspersky OpenTip</a> - Similar a VirusTotal pero realiza también un análisis dinámico (sin necesidad de registro, tamaño máximo de archivo de 256 MB).</p>
+        <p>* <a href="https://www.virustotal.com/gui/home/url">VirusTotal URL</a> - Escanea enlaces con más de 90 motores (sin necesidad de registro).</p>
+        <p>* <a href="https://opentip.kaspersky.com/?tab=lookup">Kaspersky OpenTip URL</a> - Compara enlaces con la base de datos de Kaspersky de sitios maliciosos/sitios de phishing (sin necesidad de registro).</p>
     </div>
-   
-    <div class="section">
-        <h2><span class="section-container">Preguntas Frecuentes</span></h2>
+
+    <div id="faq" class="section">
+        <h2>Preguntas Frecuentes</h2>
         <div class="faq">
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">¿Cómo puedo proteger mi dispositivo contra el malware?</div>
@@ -189,22 +222,20 @@
                 <div class="faq-question" onclick="toggleFAQ(this)">¿Debería usar un antivirus en mi dispositivo móvil?</div>
                 <div class="faq-answer">Usar un antivirus en PC es crucial, pero en dispositivos móviles no es necesario; es mejor subir los archivos a VirusTotal antes de ejecutarlos.</div>
             </div>
-            <!-- Add more FAQ items as needed -->
         </div>
-          <p>Para más preguntas, visita nuestro <a class="FAQ"  href="FAQ.html">FAQ</a></p>
+        <p>Para más preguntas, visita nuestro <a href="FAQ.html">FAQ</a></p>
     </div>
 
-    <div class="section">
-        <h2><span class="section-container">Información adicional</span> </h2> 
+    <div id="contact" class="section">
+        <h2>Información adicional</h2>
         <p>Gracias por visitar LeoShield: Tu Escudo Contra el Malware.</p>
-        <p>Si necesitas ayuda, no dudes en contáctarnos por <a class="discord" href="https://discord.com/users/942945514628988958">Discord</a> </p>
+        <p>Si necesitas ayuda, no dudes en contáctarnos por <a href="https://discord.com/users/942945514628988958">Discord</a></p>
     </div>
-
-
-    <footer class="footer">
-        <p>© 2024 LeoShield. Todos los derechos reservados.</p>
-    </footer>
 </div>
+
+<footer>
+    <p>© 2024 LeoShield. Todos los derechos reservados.</p>
+</footer>
 
 <script>
     function toggleFAQ(element) {
