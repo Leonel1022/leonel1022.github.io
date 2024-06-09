@@ -25,13 +25,27 @@
             font-size: 2.5em;
         }
 
+
+
+     /*  nav {
+         display: block;
+         background-color: #1f1f1f;
+         padding: 10px 0;
+         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);  
+         display: flex;
+         flex-direction:column; 
+         align-items: center; 
+
+        }                       VERTICAL */
+
+         /* nav styles */
         nav {
             display: flex;
-            justify-content: center;
+            justify-content:center ;
             background-color: #1f1f1f;
             padding: 10px 0;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-        }
+        }      /* HORIZONTAL */
 
         nav a {
             color: #ffffff;
@@ -39,7 +53,7 @@
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
-        }
+        } 
 
         nav a:hover {
             color: #ff9800;
@@ -50,7 +64,7 @@
             margin: 40px auto;
             padding: 0 20px;
         }
-
+          /* section styles */
         .section {
             background-color: #1c1c1c;
             padding: 20px;
@@ -87,7 +101,7 @@
             line-height: 1.6;
             font-size: 18px;
         }
-
+         /* footer styles*/
         footer {
             text-align: center;
             padding: 20px 0;
@@ -97,7 +111,7 @@
             margin-top: 40px;
             font-size: 18px;
         }
-
+        /* FAQ styles*/
         .faq-item {
             margin-bottom: 20px;
         }
@@ -140,7 +154,7 @@
 
             nav a {
                 padding: 10px 20px;
-            }
+            } 
         }
          
     </style>
@@ -160,13 +174,15 @@
     <a href="#faq">FAQ</a>
     <a href="#contact">Contacto</a>
 </nav>
-
+    <!-- sobre mi -->
+     
 <div class="container">
     <div id="about" class="section">
         <h2>Hola, soy Leo</h2>
         <p>Soy un entusiasta de la programación y un estudiante dedicado de ciberseguridad. Me apasiona aplicar mis habilidades en estos campos para resolver problemas y crear soluciones innovadoras. Actualmente, estoy profundizando mis conocimientos en ambas áreas para desarrollar una sólida base de conocimientos y práctica.</p>
         <p>En esta página encontrarás recursos y herramientas para proteger tus dispositivos contra el malware.</p>
     </div>
+      <!-- programas recomendados y guias -->
 
     <div id="recommended" class="section">
         <h2>Programas recomendados y guías</h2>
@@ -175,24 +191,36 @@
         <a href="https://ublockorigin.com/" target="_blank">uBlock Origin</a>
         <a href="https://chromewebstore.google.com/detail/malwarebytes-browser-guar/ihcjicgdanjaechkgeegckofjjedodee" target="_blank">Malwarebytes Browser Guard</a>
     </div>
+     <!-- analisis de archivos/malware -->
 
     <div id="file-analysis" class="section">
         <h2>Análisis de archivos/malware</h2>
         <a href="https://www.virustotal.com/gui/home/upload" target="_blank">VirusTotal</a>
         <a href="https://opentip.kaspersky.com" target="_blank">Kaspersky OpenTip</a>
+        <!--
+        <a href="https://tria.ge/login?return_to=%2Fdashboard" target="_blank">triage</a>
+        <a href="https://www.hybrid-analysis.com/" target="_blank">Hybrid Analysis</a>
+        <a href="https://www.filescan.io/scan" target="_blank">FileScan</a> --> 
     </div>
+     <!-- analisis de links -->
 
     <div id="link-analysis" class="section">
         <h2>Análisis de sitios web/links</h2>
         <a href="https://www.virustotal.com/gui/home/url" target="_blank">VirusTotal</a>
         <a href="https://opentip.kaspersky.com/?tab=lookup" target="_blank">Kaspersky OpenTip (URL)</a>
+        <!--
+        <a href="https://radar.cloudflare.com/scan" target="_blank">Cloudflare Radar</a>
+        <a href="https://phish.report/analysis" target="_blank">Phish report</a>
+        <a href="https://sitereport.netcraft.com/" target="_blank">Netcraft SiteReport</a> --> 
     </div>
+      <!-- busqueda de  filtracion de mails -->
 
     <div id="email-filter" class="section">
         <h2>Filtración de correo electrónico</h2>
         <a href="https://www.malwarebytes.com/digital-footprint" target="_blank">Malwarebytes Digital Footprint</a>
         <a href="https://haveibeenpwned.com/" target="_blank">Have I Been Pwned</a>
     </div>
+     <!--explicacion de todo lo visto -->
 
     <div class="section">
         <h2>Explicación</h2>
@@ -202,6 +230,7 @@
         <p>* <a href="https://www.virustotal.com/gui/home/url">VirusTotal URL</a> - Escanea enlaces con más de 90 motores (sin necesidad de registro).</p>
         <p>* <a href="https://opentip.kaspersky.com/?tab=lookup">Kaspersky OpenTip URL</a> - Compara enlaces con la base de datos de Kaspersky de sitios maliciosos/sitios de phishing (sin necesidad de registro).</p>
     </div>
+     <!-- FAQ -->
 
     <div id="faq" class="section">
         <h2>Preguntas Frecuentes</h2>
@@ -222,9 +251,11 @@
                 <div class="faq-question" onclick="toggleFAQ(this)">¿Debería usar un antivirus en mi dispositivo móvil?</div>
                 <div class="faq-answer">Usar un antivirus en PC es crucial, pero en dispositivos móviles no es necesario; es mejor subir los archivos a VirusTotal antes de ejecutarlos.</div>
             </div>
+            <!-- añadir mas items FAQ -->
         </div>
         <p>Para más preguntas, visita nuestro <a href="FAQ.html">FAQ</a></p>
     </div>
+    <!-- contacto -->
 
     <div id="contact" class="section">
         <h2>Información adicional</h2>
@@ -238,6 +269,8 @@
 </footer>
 
 <script>
+    // funcion de abrir y cerrar FAQ //
+
     function toggleFAQ(element) {
         var answer = element.nextElementSibling;
         if (answer.classList.contains('show')) {
@@ -246,7 +279,9 @@
             answer.classList.add('show');
         }
     }
+
 </script>
 
 </body>
 </html>
+
