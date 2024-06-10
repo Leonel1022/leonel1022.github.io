@@ -173,13 +173,13 @@
 </header>
 
 <nav>
-    <a href="#about" onclick="sobremi()">Sobre mí</a>
-    <a href="#recommended" onclick="recomendados()">Programas Recomendados</a>
-    <a href="#file-analysis" onclick="analisisdearchivos()">Análisis de Archivos</a>
-    <a href="#link-analysis" onclick="analisisdelinks()">Análisis de Links</a>
-    <a href="#email-filter" onclick="filtraciondemail()">Filtración de Mail</a>
-    <a href="#faq" onclick="FAQ()">FAQ</a>
-    <a href="#contact" onclick="contacto()">Contacto</a>
+    <a href="#about">Sobre mí</a>
+    <a href="#recommended">Programas Recomendados</a>
+    <a href="#file-analysis">Análisis de Archivos</a>
+    <a href="#link-analysis">Análisis de Links</a>
+    <a href="#email-filter">Filtración de Mail</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contacto</a>
 </nav>
     <!-- sobre mi -->
      
@@ -286,125 +286,6 @@
             answer.classList.add('show');
         }
     }
-
-
-
-     //funcion de oscurecer sobre mi//
-
-    function sobremi() {
-    var titulo = document.getElementById('HolaSoyLeo');
-
-    // Cambiar color a oscuro
-    titulo.style.transition = 'color 0.3s ease';
-    titulo.style.color = '#888'; // Color oscuro
-
-    // Restaurar color original después de 1 segundo
-    setTimeout(function() {
-        titulo.style.color = '#ffffff'; // Color blanco original
-    }, 500);
-}
-
-
-
-    //funcion de oscurecer recomendados//
-
-    function recomendados() {
-    var titulo = document.getElementById('programasrecomendados');
-
-    // Cambiar color a oscuro
-    titulo.style.transition = 'color 0.3s ease';
-    titulo.style.color = '  #c9841d'; // Color oscuro
-
-    // Restaurar color original después de 1 segundo
-    setTimeout(function() {
-        titulo.style.color = '#ff9800'; // Color naranja original
-    }, 500);
-}
-
-
-
-  //funcion de oscurecer analisis de archivos//
-
-  function analisisdearchivos() {
-    var titulo = document.getElementById('analisismalware');
-
-    // Cambiar color a oscuro
-    titulo.style.transition = 'color 0.3s ease';
-    titulo.style.color = '#c9841d'; // Color oscuro
-
-    // Restaurar color original después de 1 segundo
-    setTimeout(function() {
-        titulo.style.color = '#ff9800'; // Color naranja original
-    }, 500);
-}
-
-
-
-  //funcion de oscurecer analisis de links//
-
-  function analisisdelinks() {
-    var titulo = document.getElementById('phishing');
-
-    // Cambiar color a oscuro
-    titulo.style.transition = 'color 0.3s ease';
-    titulo.style.color = '#c9841d'; // Color oscuro
-
-    // Restaurar color original después de 1 segundo
-    setTimeout(function() {
-        titulo.style.color = '#ff9800'; // Color naranja original
-    }, 500);
-}
-
-
-
-  //funcion de oscurecer filtracion mail//
-
-  function filtraciondemail() {
-    var titulo = document.getElementById('spam');
-
-    // Cambiar color a oscuro
-    titulo.style.transition = 'color 0.3s ease';
-    titulo.style.color = '#c9841d'; // Color oscuro
-
-    // Restaurar color original después de 1 segundo
-    setTimeout(function() {
-        titulo.style.color = '#ff9800'; // Color naranja original
-    }, 500);
-}
-
-
-
-//funcion de oscurecer FAQ//
-
-function FAQ() {
-    var titulo = document.getElementById('FAQ');
-
-    // Cambiar color a oscuro
-    titulo.style.transition = 'color 0.3s ease';
-    titulo.style.color = '#c9841d'; // Color oscuro
-
-    // Restaurar color original después de 1 segundo
-    setTimeout(function() {
-        titulo.style.color = '#ff9800'; // Color naranja original
-    }, 500);
-}
-
-
-
-//funcion de oscurecer contacto//
-
-function contacto() {
-    var titulo = document.getElementById('contactame');
-
-    // Cambiar color a oscuro
-    titulo.style.transition = 'color 0.3s ease';
-    titulo.style.color = '#c9841d'; // Color oscuro
-
-    // Restaurar color original después de 1 segundo
-    setTimeout(function() {
-        titulo.style.color = '#ff9800'; // Color naranja original
-    }, 500);
-}
 </script>
 
 </body>
