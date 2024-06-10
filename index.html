@@ -26,6 +26,11 @@
             font-size: 2.5em;
         }
 
+        .Leo:hover{
+           color: #c0c0c0;
+           transition: 0.5s;
+        }
+
 
 
      /*  nav {
@@ -86,7 +91,7 @@
         }
 
         .section a {
-            color: #82b1ff;
+            color: #007bff;
             font-size: 1.1em;
             display: block;
             margin: 10px 0;
@@ -94,7 +99,7 @@
         }
 
         .section a:hover {
-            color: #ff9800;
+            color: #0056b3;
         }
 
         .section p {
@@ -157,36 +162,37 @@
                 padding: 10px 20px;
             } 
         }
-         
     </style>
 </head>
 <body>
 
 <header>
-    <h1>LeoShield</h1>
+       <h1> 
+       <span class="Leo">Leo</span><span class="Shield">Shield</span>
+       </h1>
 </header>
 
 <nav>
-    <a href="#about">Sobre mí</a>
-    <a href="#recommended">Programas Recomendados</a>
-    <a href="#file-analysis">Análisis de Archivos</a>
-    <a href="#link-analysis">Análisis de Links</a>
-    <a href="#email-filter">Filtración de Email</a>
-    <a href="#faq">FAQ</a>
-    <a href="#contact">Contacto</a>
+    <a href="#about" onclick="sobremi()">Sobre mí</a>
+    <a href="#recommended" onclick="recomendados()">Programas Recomendados</a>
+    <a href="#file-analysis" onclick="analisisdearchivos()">Análisis de Archivos</a>
+    <a href="#link-analysis" onclick="analisisdelinks()">Análisis de Links</a>
+    <a href="#email-filter" onclick="filtraciondemail()">Filtración de Mail</a>
+    <a href="#faq" onclick="FAQ()">FAQ</a>
+    <a href="#contact" onclick="contacto()">Contacto</a>
 </nav>
     <!-- sobre mi -->
      
 <div class="container">
     <div id="about" class="section">
-        <h2>Hola, soy Leo</h2>
+        <h2 id="HolaSoyLeo">Hola, soy Leo</h2>
         <p>Soy un entusiasta de la programación y un estudiante dedicado de ciberseguridad. Me apasiona aplicar mis habilidades en estos campos para resolver problemas y crear soluciones innovadoras. Actualmente, estoy profundizando mis conocimientos en ambas áreas para desarrollar una sólida base de conocimientos y práctica.</p>
         <p>En esta página encontrarás recursos y herramientas para proteger tus dispositivos contra el malware.</p>
     </div>
       <!-- programas recomendados y guias -->
 
     <div id="recommended" class="section">
-        <h2>Programas recomendados y guías</h2>
+        <h2 id="programasrecomendados">Programas recomendados y guías</h2>
         <a href="https://www.maldroid.dev/NoMalware" target="_blank">Guía de Maldroid.dev</a>
         <a href="https://kaspersky.com/downloads/free-antivirus" target="_blank">Kaspersky Antivirus</a>
         <a href="https://ublockorigin.com/" target="_blank">uBlock Origin</a>
@@ -195,7 +201,7 @@
      <!-- analisis de archivos/malware -->
 
     <div id="file-analysis" class="section">
-        <h2>Análisis de archivos/malware</h2>
+        <h2 id="analisismalware">Análisis de archivos/malware</h2>
         <a href="https://www.virustotal.com/gui/home/upload" target="_blank">VirusTotal</a>
         <a href="https://opentip.kaspersky.com" target="_blank">Kaspersky OpenTip</a>
         <!--
@@ -206,7 +212,7 @@
      <!-- analisis de links -->
 
     <div id="link-analysis" class="section">
-        <h2>Análisis de sitios web/links</h2>
+        <h2 id="phishing">Análisis de sitios web/links</h2>
         <a href="https://www.virustotal.com/gui/home/url" target="_blank">VirusTotal</a>
         <a href="https://opentip.kaspersky.com/?tab=lookup" target="_blank">Kaspersky OpenTip (URL)</a>
         <!--
@@ -217,7 +223,7 @@
       <!-- busqueda de  filtracion de mails -->
 
     <div id="email-filter" class="section">
-        <h2>Filtración de correo electrónico</h2>
+        <h2 id="spam">Filtración de correo electrónico</h2>
         <a href="https://www.malwarebytes.com/digital-footprint" target="_blank">Malwarebytes Digital Footprint</a>
         <a href="https://haveibeenpwned.com/" target="_blank">Have I Been Pwned</a>
     </div>
@@ -234,7 +240,7 @@
      <!-- FAQ -->
 
     <div id="faq" class="section">
-        <h2>Preguntas Frecuentes</h2>
+        <h2 id="FAQ">Preguntas Frecuentes</h2>
         <div class="faq">
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFAQ(this)">¿Cómo puedo proteger mi dispositivo contra el malware?</div>
@@ -259,7 +265,7 @@
     <!-- contacto -->
 
     <div id="contact" class="section">
-        <h2>Información adicional</h2>
+        <h2 id="contactame">Información adicional</h2>
         <p>Gracias por visitar LeoShield: Tu Escudo Contra el Malware.</p>
         <p>Si necesitas ayuda, no dudes en contáctarnos por <a href="https://discord.com/users/942945514628988958">Discord</a></p>
     </div>
@@ -270,9 +276,9 @@
 </footer>
 
 <script>
-    // funcion de abrir y cerrar FAQ //
 
-    function toggleFAQ(element) {
+ // Función para alternar la visibilidad de las respuestas de FAQ
+ function toggleFAQ(element) {
         var answer = element.nextElementSibling;
         if (answer.classList.contains('show')) {
             answer.classList.remove('show');
@@ -281,6 +287,124 @@
         }
     }
 
+
+
+     //funcion de oscurecer sobre mi//
+
+    function sobremi() {
+    var titulo = document.getElementById('HolaSoyLeo');
+
+    // Cambiar color a oscuro
+    titulo.style.transition = 'color 0.3s ease';
+    titulo.style.color = '#888'; // Color oscuro
+
+    // Restaurar color original después de 1 segundo
+    setTimeout(function() {
+        titulo.style.color = '#ffffff'; // Color blanco original
+    }, 500);
+}
+
+
+
+    //funcion de oscurecer recomendados//
+
+    function recomendados() {
+    var titulo = document.getElementById('programasrecomendados');
+
+    // Cambiar color a oscuro
+    titulo.style.transition = 'color 0.3s ease';
+    titulo.style.color = '  #c9841d'; // Color oscuro
+
+    // Restaurar color original después de 1 segundo
+    setTimeout(function() {
+        titulo.style.color = '#ff9800'; // Color naranja original
+    }, 500);
+}
+
+
+
+  //funcion de oscurecer analisis de archivos//
+
+  function analisisdearchivos() {
+    var titulo = document.getElementById('analisismalware');
+
+    // Cambiar color a oscuro
+    titulo.style.transition = 'color 0.3s ease';
+    titulo.style.color = '#c9841d'; // Color oscuro
+
+    // Restaurar color original después de 1 segundo
+    setTimeout(function() {
+        titulo.style.color = '#ff9800'; // Color naranja original
+    }, 500);
+}
+
+
+
+  //funcion de oscurecer analisis de links//
+
+  function analisisdelinks() {
+    var titulo = document.getElementById('phishing');
+
+    // Cambiar color a oscuro
+    titulo.style.transition = 'color 0.3s ease';
+    titulo.style.color = '#c9841d'; // Color oscuro
+
+    // Restaurar color original después de 1 segundo
+    setTimeout(function() {
+        titulo.style.color = '#ff9800'; // Color naranja original
+    }, 500);
+}
+
+
+
+  //funcion de oscurecer filtracion mail//
+
+  function filtraciondemail() {
+    var titulo = document.getElementById('spam');
+
+    // Cambiar color a oscuro
+    titulo.style.transition = 'color 0.3s ease';
+    titulo.style.color = '#c9841d'; // Color oscuro
+
+    // Restaurar color original después de 1 segundo
+    setTimeout(function() {
+        titulo.style.color = '#ff9800'; // Color naranja original
+    }, 500);
+}
+
+
+
+//funcion de oscurecer FAQ//
+
+function FAQ() {
+    var titulo = document.getElementById('FAQ');
+
+    // Cambiar color a oscuro
+    titulo.style.transition = 'color 0.3s ease';
+    titulo.style.color = '#c9841d'; // Color oscuro
+
+    // Restaurar color original después de 1 segundo
+    setTimeout(function() {
+        titulo.style.color = '#ff9800'; // Color naranja original
+    }, 500);
+}
+
+
+
+//funcion de oscurecer contacto//
+
+function contacto() {
+    var titulo = document.getElementById('contactame');
+
+    // Cambiar color a oscuro
+    titulo.style.transition = 'color 0.3s ease';
+    titulo.style.color = '#c9841d'; // Color oscuro
+
+    // Restaurar color original después de 1 segundo
+    setTimeout(function() {
+        titulo.style.color = '#ff9800'; // Color naranja original
+    }, 500);
+}
 </script>
 
 </body>
