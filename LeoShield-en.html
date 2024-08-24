@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--Configura la ventana gráfica para dispositivos móviles, adaptando el ancho al dispositivo y estableciendo el zoom inicial.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--especifica el nombre del autor del documento.-->
+    <meta name="author" content="Leonel1022">
+    
+     <!--este enlace establece el ícono de la página que aparece en la pestaña del navegador. -->
+    <link rel="icon" type="image/x-icon" href="faraicon.ico">
+
+    <!-- Título que aparecerá en la vista previa -->
+    <meta property="og:title" content="Leonel1022" />
+
+    <!-- Descripción breve que aparecerá debajo del título -->
+    <meta property="og:description" content="¿Esta cosa esta funcionando?" />
+    
+    <!-- URL de la imagen que aparecerá en la vista previa -->
+    <meta property="og:image" content="https://github.com/Leonel1022/leonel1022.github.io/blob/main/gato.jpg?raw=true" />
+    <title>LeoShield</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1c1c1c;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #333;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .Leo:hover{
+           color: #c0c0c0;
+           transition: 0.5s;
+        }
+
+
+
+     /*  nav {
+         display: block;
+         background-color: #1f1f1f;
+         padding: 10px 0;
+         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);  
+         display: flex;
+         flex-direction:column; 
+         align-items: center; 
+
+        }                       VERTICAL */
+
+         /* nav styles */
+        nav {
+            display: flex;
+            justify-content:center ;
+            background-color: #1f1f1f;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }      /* HORIZONTAL */
+
+        nav a {
+            color: #ffffff;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        } 
+
+        nav a:hover {
+            color: #ff9800;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+          /* section styles */
+        .section {
+            background-color: #1c1c1c;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Estilo específico para el primer h2 dentro de .section */
+        .section:first-of-type h2 {
+            color: #ffffff; /* Color blanco */
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color:  #ff9800;
+        }
+
+        .section a {
+            color: #007bff;
+            font-size: 1.1em;
+            display: block;
+            margin: 10px 0;
+            transition: color 0.3s ease;
+        }
+
+        .section a:hover {
+            color: #0056b3;
+        }
+
+        .section p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            font-size: 18px;
+        }
+         /* footer styles*/
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #1c1c1c;
+            color: #ffffff;
+            border-top: 2px solid #333;
+            margin-top: 40px;
+            font-size: 18px;
+        }
+        /* FAQ styles*/
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            cursor: pointer;
+            padding: 10px;
+            background-color: #333;
+            color: #ffffff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #555;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            margin-top: 5px;
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+        }
+
+        .faq-answer.show {
+            display: block;
+        }
+           /* Media query para dispositivos móviles */
+           @media screen and (max-width: 768px) {
+            nav {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                letter-spacing: 2.3px;
+            }
+
+            nav a {
+                padding: 10px 20px;
+            } 
+        }
+
+        /* Botón de idioma */
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .language-selector button {
+            background-color: #ff9800;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .language-selector button:hover {
+            background-color: #e68900;
+        }
+
+        .language-menu {
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 0;
+            background-color: #333;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .language-menu a {
+            display: block;
+            padding: 10px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .language-menu a:hover {
+            background-color: #555;
+        }
+
+        .language-selector.show .language-menu {
+            display: block;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+       <h1> 
+       <span class="Leo">Leo</span><span class="Shield">Shield</span>
+       
+       </h1>
+
+       <div class="language-selector" onclick="toggleLanguageMenu()">
+        <button> English </button>
+        <div class="language-menu">
+            <a href="LeoShield-en.html">English</a>
+            <a href="index.html">Español</a>
+            <!-- Agrega más opciones aquí -->
+        </div>
+    </div>
+</header>
+
+<nav>
+    <a href="#about">About me</a>
+    <a href="#recommended">Recommended programs</a>
+    <a href="#file-analysis">File analysis</a>
+    <a href="#link-analysis">Link analysis</a>
+    <a href="#email-filter">Mail Leak</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">contact</a>
+</nav>
+    <!-- sobre mi -->
+     
+<div class="container">
+    <div id="about" class="section">
+        <h2 id="HolaSoyLeo">Hi, I'm Leo</h2>
+        <p>I am a student in programming, web development and cybersecurity.
+        <br>I am passionate about applying my skills in these fields to solve problems and create innovative solutions.    
+        <br> I am currently deepening my knowledge in these areas to develop a solid foundation of knowledge and practice.</p>
+        <p>On this page you will find resources and tools to protect your devices against malware.</p>
+    </div>
+      <!-- programas recomendados y guias -->
+
+    <div id="recommended" class="section">
+        <h2 id="programasrecomendados">Recommended programs and guides</h2>
+        <a href="https://www.maldroid.dev/NoMalware" target="_blank">Maldroid.dev Guide</a>
+        <a href="https://kaspersky.com/downloads/free-antivirus" target="_blank">Kaspersky Antivirus</a>
+        <a href="https://ublockorigin.com/" target="_blank">uBlock Origin</a>
+        <a href="https://chromewebstore.google.com/detail/malwarebytes-browser-guar/ihcjicgdanjaechkgeegckofjjedodee" target="_blank">Malwarebytes Browser Guard</a>
+    </div>
+     <!-- analisis de archivos/malware -->
+
+    <div id="file-analysis" class="section">
+        <h2 id="analisismalware">File/Malware Scanning</h2>
+        <a href="https://www.virustotal.com/gui/home/upload" target="_blank">VirusTotal</a>
+        <a href="https://opentip.kaspersky.com" target="_blank">Kaspersky OpenTip</a>
+        <!--
+        <a href="https://tria.ge/login?return_to=%2Fdashboard" target="_blank">triage</a>
+        <a href="https://www.hybrid-analysis.com/" target="_blank">Hybrid Analysis</a>
+        <a href="https://www.filescan.io/scan" target="_blank">FileScan</a> --> 
+    </div>
+     <!-- analisis de links -->
+
+    <div id="link-analysis" class="section">
+        <h2 id="phishing">Website/link analysis</h2>
+        <a href="https://www.virustotal.com/gui/home/url" target="_blank">VirusTotal</a>
+        <a href="https://opentip.kaspersky.com/?tab=lookup" target="_blank">Kaspersky OpenTip (URL)</a>
+        <!--
+        <a href="https://radar.cloudflare.com/scan" target="_blank">Cloudflare Radar</a>
+        <a href="https://phish.report/analysis" target="_blank">Phish report</a>
+        <a href="https://sitereport.netcraft.com/" target="_blank">Netcraft SiteReport</a> --> 
+    </div>
+      <!-- busqueda de  filtracion de mails -->
+
+    <div id="email-filter" class="section">
+        <h2 id="spam">Email leak</h2>
+        <a href="https://www.malwarebytes.com/digital-footprint" target="_blank">Malwarebytes Digital Footprint</a>
+        <a href="https://haveibeenpwned.com/" target="_blank">Have I Been Pwned</a>
+    </div>
+     <!--explicacion de todo lo visto -->
+
+    <div class="section">
+        <h2>Explanation</h2>
+        <p>In this section, the tools mentioned above are briefly explained.</p>
+        <p>* <a href="https://www.virustotal.com/">VirusTotal</a> - Performs static file analysis with over 70 antivirus engines (no registration required, max 650 MB).</p>
+        <p>* <a href="https://opentip.kaspersky.com/">Kaspersky OpenTip</a> - Similar to VirusTotal, only it runs a dynamic scan and uses Kaspersky database (no registration required, max 256 MB).</p>
+        <p>* <a href="https://www.virustotal.com/gui/home/url">VirusTotal URL</a> - Scan links with over 90 antivirus engines (no registration required).</p>
+        <p>* <a href="https://opentip.kaspersky.com/?tab=lookup">Kaspersky OpenTip URL</a> - Compares links against Kaspersky's database of malicious/phishing sites (no registration required).</p>
+    </div>
+     <!-- FAQ -->
+
+    <div id="faq" class="section">
+        <h2 id="FAQ">Frequently Asked Questions</h2>
+        <div class="faq">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">¿How can I protect my device from malware?</div>
+                <div class="faq-answer">There are several steps you can take to protect your device from malware, such as keeping your software up to date, using trusted antivirus programs, avoiding clicking on suspicious links, and downloading apps only from trusted sources.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">¿What is the difference between static and dynamic file analysis?</div>
+                <div class="faq-answer">A static file analysis examines the contents of a file without executing it, while a dynamic analysis runs the file in a controlled environment to observe its behavior in real time.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">¿Why is it important to protect my email?</div>
+                <div class="faq-answer">Protecting your email is crucial because it is one of the main ways cybercriminals try to access your personal information or compromise the security of your online accounts.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">¿Should I use an antivirus on my mobile device?</div>
+                <div class="faq-answer">Using an antivirus on PC is crucial, but on mobile devices it is not necessary; it is better to upload the files to VirusTotal before running them.</div>
+            </div>
+            <!-- añadir mas items FAQ -->
+        </div>
+        <p>For more questions, please visit our<a href="FAQ-en.html">FAQ</a></p>
+    </div>
+    <!-- contacto -->
+
+    <div id="contact" class="section">
+        <h2 id="contactame">Additional information</h2>
+        <p>Thank you for visiting LeoShield: Your Shield Against Malware.</p>
+        <p>If you need help, please feel free to contact us by <a href="https://discord.com/users/942945514628988958">Discord</a></p>
+    </div>
+</div>
+
+<footer>
+    <p>© 2024 LeoShield. All rights reserved.</p>
+</footer>
+
+<script>
+
+ // Función para alternar la visibilidad de las respuestas de FAQ
+ function toggleFAQ(element) {
+        var answer = element.nextElementSibling;
+        if (answer.classList.contains('show')) {
+            answer.classList.remove('show');
+        } else {
+            answer.classList.add('show');
+        }
+    }
+
+    // Función para alternar el menú de selección de idioma
+    function toggleLanguageMenu() {
+        var languageSelector = document.querySelector('.language-selector');
+        languageSelector.classList.toggle('show');
+    }
+</script>
+
+</body>
+</html>

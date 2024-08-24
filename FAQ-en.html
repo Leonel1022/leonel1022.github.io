@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Leonel1022">
+    <title>FAQ - LeoShield</title>
+    <style>
+        body {
+            background-color: #171717;
+            color: #ddd;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq {
+            margin-top: 20px;
+        }
+
+        .categoria {
+            margin-top: 30px;
+        }
+
+        .categoria-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: orange;
+            margin-bottom: 10px;
+        }
+
+        .pregunta {
+            background-color: #2d2d2d;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .pregunta-title {
+            margin: 0;
+            font-size: 20px;
+            font-weight: bold;
+            padding-bottom: 5px;
+        }
+
+        .answer {
+            display: none;
+            padding: 15px;
+            background-color: #2d2d2d;
+            border-radius: 8px;
+        }
+
+        .answer p {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .pregunta.active .answer {
+            display: block;
+        }
+
+        .rights {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+        }
+
+        a {
+            text-decoration: none;
+            color: darkorange;
+        }
+        a:hover{
+           text-decoration: underline;
+
+        }
+
+        .faq-title {
+            color: orange;
+        }
+
+        .indice {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .indice a {
+            color: darkorange;
+            text-decoration: none;
+        }
+
+        .indice a:hover {
+            text-decoration: underline;
+        }
+
+        .contramaestra{
+           color: darkorange;
+
+        }
+         /*seguridad whatsapp styles */
+        .seguridad-whatsapp{
+           color: darkorange;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center;"><span class="faq-title">FAQ</span> - LeoShield</h1>
+        
+        <div class="indice">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#proteccion">Protection of Personal Information</a></li>
+                <li><a href="#amenazas">Cyber ​​Threats</a></li>
+                <li><a href="#herramientas">Tools and Services</a></li>
+                <li><a href="#buenas-practicas">Good Practices</a></li>
+                <li><a href="#informacion">Information</a></li>
+            </ul>
+        </div>
+
+        <div class="faq">
+            <!-- Categoría: Protección de Información Personal -->
+            <div id="proteccion" class="categoria">
+                <h2 class="categoria-title">Protection of Personal Information</h2>
+
+                <div class="pregunta">
+                    <h2 class="pregunta-title">¿How do I protect my personal information online?</h2>
+                    <div class="answer">
+                        <p>To protect your personal information online, it's a good idea to use strong, unique passwords for each account, enable two-factor authentication whenever possible, avoid using unsecured public Wi-Fi networks, and keep software and operating systems up to date.</p>
+                    </div>
+                </div>
+
+                <div class="pregunta">
+                    <h2 class="pregunta-title">¿How can I check that my password is strong?</h2>
+                    <div class="answer">
+                        <p>If you have doubts about how strong your password is, you can check it using the <a href="https://bitwarden.com/password-strength/" target="_blank">Bitwarden Password Tester</a>.</p>
+                    </div>
+                </div>
+
+                <div class="pregunta">
+                        <h2 class="pregunta-title">¿What should I do if my email account is leaked?</h2>
+                    <div class="answer">
+                        <p>If you suspect that your email account has been compromised or leaked, I highly recommend migrating to another email address. If you don't, you leave yourself very vulnerable to phishing emails, fraud, and even, in the worst case, account theft.</p>
+                    </div>
+                </div>
+
+                <div class="pregunta">
+                    <h2 class="pregunta-title">¿How to recognize phishing emails?</h2>
+                    <div class="answer">
+                        <p>Phishing emails often contain suspicious links, grammatical or spelling errors, urgent requests for personal or financial information, and senders who are unknown or do not match the domain of the service or company they claim to represent.</p>
+                        <p>You can learn how to identify phishing emails at <a href="https://phishingquiz.withgoogle.com/" target="_blank">Phishing Quiz</a>, which is part of Google.</p>
+                    </div>
+                </div>
+                <div class="pregunta">
+                    <h2 class="pregunta-title">¿How many characters should my master password be and what pattern should I use?</h2>
+                    <div class="answer">
+                        <p>I recommend that your master password be 20 characters or longer.
+                         <br>It is not necessary to use signs.(!, @, #, $, etc).
+                         <br> You can use alphabetical words that don't make sense together to form a phrase that's easy to remember but hard to guess.</p>
+                        <p>Example:
+                             <span class="contramaestra"> horse+hill+blizzard+584 </span>
+                        </p>
+                    </div>
+            </div>
+
+            <!-- Categoría: Amenazas Cibernéticas -->
+            <div id="amenazas" class="categoria">
+                <h2 class="categoria-title">Cyber ​​Threats</h2>
+
+                <div class="pregunta">
+                    <h2 class="pregunta-title">¿What are the most common cyber threats?</h2>
+                    <div class="answer">
+                        <p>The most common cyber threats are the following.
+                            Malware: Malicious software such as viruses, Trojans, ransomware, and spyware. <br> <br>
+                            Phishing: Social engineering techniques to obtain sensitive information such as passwords and credit card numbers. <br> <br>
+                            DDoS (Distributed Denial of Service) Attacks: Flooding a server or network with traffic to disrupt service. <br> <br>
+                            Brute force attacks: Attempting to guess passwords by using massive combinations of characters. <br> <br>
+                            Vulnerability exploits: Taking advantage of flaws in software to gain unauthorized access.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categoría: Herramientas y Servicios -->
+            <div id="herramientas" class="categoria">
+                <h2 class="categoria-title">Tools and Services</h2>
+
+                <div class="pregunta">
+                    <h2 class="pregunta-title">¿What cloud storage service can I use?</h2>
+                    <div class="answer">
+                        <p>There are many cloud storage services. I recommend using <a href="https://mega.nz/" target="_blank">MEGA</a>. The free plan gives you 20GB of storage.
+                            <br>MEGA uses end-to-end encryption (E2EE), meaning data leaves the device encrypted.
+                            <br>Only collects metadata.
+                        </p>
+
+                    </div>
+                    
+                </div>
+                <div class="pregunta">
+                    <h2 class="pregunta-title">¿Does Have I Been Pwned (HIBP) collect emails to be analyzed?</h2>
+                    <div class="answer">
+                        <p>No, Have I Been Pwned (HIBP) does not collect the emails you scan for data breaches. The only emails it securely stores are those that have already been breached and found.</p>
+                    </div>
+                </div>
+              
+            </div>
+
+            <!-- Categoría: Buenas Prácticas -->
+            <div id="buenas-practicas" class="categoria">
+                <h2 class="categoria-title">Good Practices</h2>
+
+                <div class="pregunta">
+                    <h2 class="pregunta-title">¿Should I stop using piracy?</h2>
+                    <div class="answer">
+                        <p>Absolutely yes. Stopping the use of pirated software is important for a number of reasons, ranging from the security and performance of your devices to legal and ethical considerations.
+                            <br>They may contain malware, data theft, etc.</p>
+                    </div>
+                </div>
+
+                <div class="pregunta">
+                    <h2 class="pregunta-title">If VirusTotal doesn't detect anything, ¿does that mean it's safe?</h2>
+                    <div class="answer">
+                        <p>No. There are false positives (FP) and false negatives (FN). False positives are when engines classify something as malicious when it is not.
+                            <br>And false negatives are when engines don't detect something that is malicious.
+                            <br>Here are some examples:
+                            <br><a href="https://i.imgur.com/vPfV6TB.png" target="_blank">JaffaVPN.exe FP</a>  
+                            <br><a href="https://i.imgur.com/uldmTmf.png" target="_blank">2024-05-07-11.zip FN</a>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="pregunta">
+                    <h2 class="pregunta-title">  ¿How to improve the security of my WhatsApp account?        </h2>
+                    <div class="answer">
+                        <p>You can protect your WhatsApp account by following these steps:</p>
+                        
+                        <p> <span class="seguridad-whatsapp">Enable 2FA</span>:It will ask you for a code every time you start a new WhatsApp.
+                           <br> <span class="seguridad-whatsapp">Don't share SMS codes</span>: 6-digit codes allow access to your account.
+                           <br> <span class="seguridad-whatsapp">Linked devices</span>:Devices linked to WhatsApp have authorized access to your account and messages.
+                           <br>
+                        <a href="https://faq.whatsapp.com/1095301557782068/?helpref=hc_fnav&cms_id=1095301557782068&draft=false">FAQ WhatsApp</a> </p>
+                    </div>
+                </div>
+            
+            
+            </div>
+
+            <!-- Categoría: Información General -->
+            <div id="informacion" class="categoria">
+                <h2 class="categoria-title">General Information</h2>
+                <div class="pregunta">
+                    <h2 class="pregunta-title">¿What is encryption and why is it important?</h2>
+                    <div class="answer">
+                        <p>Encryption is the process of converting data into a coded format that can only be read by someone who has the decryption key. It is important because it protects confidential and sensitive information from being accessed or readable in case it is intercepted.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="rights">
+            <p>© 2024 LeoShield. All rights reserved.</p>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const preguntas = document.querySelectorAll(".pregunta");
+
+            preguntas.forEach(pregunta => {
+                pregunta.addEventListener("click", function() {
+                    // Toggle 'active' class to expand/collapse answer
+                    pregunta.classList.toggle("active");
+                });
+            });
+        });
+    </script>
+</body>
+</html>
