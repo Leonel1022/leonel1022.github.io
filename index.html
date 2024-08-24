@@ -177,6 +177,55 @@
                 padding: 10px 20px;
             } 
         }
+
+        /* Botón de idioma */
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .language-selector button {
+            background-color: #ff9800;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .language-selector button:hover {
+            background-color: #e68900;
+        }
+
+        .language-menu {
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 0;
+            background-color: #333;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .language-menu a {
+            display: block;
+            padding: 10px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .language-menu a:hover {
+            background-color: #555;
+        }
+
+        .language-selector.show .language-menu {
+            display: block;
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
@@ -184,7 +233,17 @@
 <header>
        <h1> 
        <span class="Leo">Leo</span><span class="Shield">Shield</span>
+       
        </h1>
+
+       <div class="language-selector" onclick="toggleLanguageMenu()">
+        <button>Español</button>
+        <div class="language-menu">
+            <a href="LeoShield-en.html">English</a>
+            <a href="index.html">Español</a>
+            <!-- Agrega más opciones aquí -->
+        </div>
+    </div>
 </header>
 
 <nav>
@@ -303,8 +362,13 @@
             answer.classList.add('show');
         }
     }
+
+    // Función para alternar el menú de selección de idioma
+    function toggleLanguageMenu() {
+        var languageSelector = document.querySelector('.language-selector');
+        languageSelector.classList.toggle('show');
+    }
 </script>
 
 </body>
 </html>
-
