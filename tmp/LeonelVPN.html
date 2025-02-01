@@ -1,1 +1,402 @@
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>leonelVPN</title>
+        <style>
+        
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* --------- HEADER --------- */
+        header {
+            background-color: #1c1c1c;
+            padding: 1.5em 1em;
+            border-bottom: 1px solid #333;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: #ff7043;
+        }
+
+        /* Menú de idioma */
+        .language-menu {
+            position: absolute;
+            right: 1em;
+            top: 50%;
+            transform: translateY(-50%);
+            display: inline-block;
+        }
+
+        .language-menu button {
+            background-color: #ff7043;
+            color: #ffffff;
+            padding: 0.7em 1.3em;
+            font-size: 1em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .language-menu button:hover {
+            background-color: #f57c00;
+            transform: scale(1.05);
+        }
+
+        /* Menú desplegable */
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #2c2c2c;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+            width: 180px;
+            text-align: left;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 1em;
+            color: #dcdcdc;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .dropdown a:hover {
+            background-color: #444;
+        }
+
+        .language-menu:hover .dropdown {
+            display: block;
+        }
+
+        /* --------- SECCIONES --------- */
+        .container {
+            max-width: 1200px;
+            margin: 2em auto;
+            padding: 0 1em;
+        }
+
+        section {
+            margin-bottom: 2em;
+            padding: 1.2em;
+            background-color: #1d1d1d;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: scale(1.02);
+        }
+
+        section h2 {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+            color: #ff7043;
+        }
+
+        section p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* --------- BOTONES Y ENLACES --------- */
+        .download-link, button {
+            background-color: #ff7043;
+            color: #ffffff;
+            padding: 1em 2em;
+            font-size: 1.2em;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-bottom: 2em;
+            cursor: pointer;
+            border: none;
+        }
+
+        .download-link:hover, button:hover {
+            background-color: #f57c00;
+            transform: scale(1.05);
+        }
+
+        /* --------- TESTIMONIOS --------- */
+        .testimonials {
+            margin: 2em 0;
+        }
+
+        .testimonial {
+            background-color: #333;
+            padding: 1em;
+            border-radius: 8px;
+            margin-bottom: 1em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+            font-size: 1em;
+        }
+
+        /* --------- MODAL --------- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #222;
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 90%;
+            margin: auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+        }
+
+        .modal-content iframe {
+            width: 100%;
+            height: 280px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #dcdcdc;
+            float: right;
+            font-size: 2em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #ff7043;
+        }
+
+        /* --------- FOOTER --------- */
+        footer {
+            background-color: #1c1c1c;
+            padding: 1em;
+            width: 100%;
+            bottom: 0;
+            border-top: 1px solid #333;
+            box-shadow: 0 -4px 8px rgba(0,0,0,0.6);
+            position: relative;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+
+        .contact {
+            margin-top: 1.5em;
+            font-size: 1.1em;
+            color: #ff7043;
+        }
+        .VPN{
+                color: #ffffff;
+            }
+
+            .leonel{
+                color: rgb(185, 183, 183);
+            }
+
+        /* --------- RESPONSIVE (MÓVILES) --------- */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .language-menu button {
+                font-size: 1em;
+                padding: 0.6em 1em;
+            }
+
+            .container {
+                padding: 1em;
+            }
+
+            section {
+                margin-bottom: 1.5em;
+                padding: 1em;
+            }
+
+            section h2 {
+                font-size: 1.8em;
+            }
+
+            section p {
+                font-size: 1em;
+            }
+
+            .download-link, button {
+                font-size: 1em;
+                padding: 0.8em 1.5em;
+            }
+
+            .testimonial {
+                font-size: 0.9em;
+                padding: 1em;
+            }
+
+            .modal-content iframe {
+                height: 200px;
+            }
+
+            footer {
+                font-size: 0.9em;
+                padding: 0.8em;
+            }
+
+            .contact {
+                font-size: 1em;
+            }
+        }
+        .VPN{
+                color: #ffffff;
+            }
+
+            .leonel{
+                color: rgb(185, 183, 183);
+            }
+    </style>
+    </head>
+    <body>
+        <header>
+            <h1>
+                <span class="leonel">Leonel</span><span class="VPN">VPN</span>
+            </h1>
+            <div class="language-menu">
+                <button>Idioma</button>
+                <div class="dropdown">
+                    <a href="leonelVPN-es.html">Español</a>
+                    <a href="leonelVPN-en.html">Inglés</a>
+                </div>
+            </div>
+        </header>
+        <button class="download-link playVideo">Descargar leonelVPN-freemium</button>
+        <button class="download-link playVideo">Descargar leonelVPN-premium</button>
+
+        <div class="container">
+
+            <section id="que-es">
+                <h2>¿Qué es LeonelVPN?</h2>
+                <p>LeonelVPN es un servicio de VPN diseñado para proteger tu privacidad en línea y ofrecerte una navegación segura sin restricciones geográficas. Con una red de servidores ubicados en diferentes países, te permite acceder a contenido de cualquier parte del mundo, protegiendo tus datos personales y tu actividad en línea de posibles amenazas.</p>
+                
+                <p>Entre sus principales características, LeonelVPN utiliza:</p>
+                <ul>
+                    <li><strong>Protocolos de Seguridad Avanzados:</strong> LeonelVPN emplea los protocolos más confiables para asegurar una conexión rápida y segura. Estos incluyen <strong>WireGuard®</strong>, <strong>OpenVPN</strong> e <strong>IKEv2/IPSec</strong>, que ofrecen cifrado de alta calidad y protegen tu información mientras navegas.</li>
+                    <li><strong>Servidores Globales:</strong> La red de servidores de LeonelVPN está distribuida a nivel mundial, lo que asegura alta disponibilidad, velocidad y ancho de banda ilimitado. Además, algunos de nuestros servidores están optimizados para el intercambio de archivos P2P, garantizando una experiencia fluida y rápida.</li>
+                    <li><strong>Protección Completa:</strong> Con características como <strong>cifrado AES-256</strong>, <strong>Kill Switch</strong> y protección contra fugas de <strong>IP/DNS</strong>, LeonelVPN asegura que tu conexión esté completamente protegida en todo momento, incluso si la conexión VPN se interrumpe.</li>
+                    <li><strong>Privacidad y Anonimato:</strong> LeonelVPN tiene una estricta <strong>política de No-Logs</strong>, lo que significa que no almacenamos información sobre tu actividad en línea. Además, no vendemos tus datos a terceros. Tu privacidad es nuestra prioridad.</li>
+                    <li><strong>Modelo de Financiación Transparente:</strong> LeonelVPN se financia a través de suscripciones mensuales o anuales, lo que garantiza que no necesitamos depender de publicidad invasiva ni vender datos de usuario. Esta es nuestra forma de ofrecer un servicio sin comprometer tu privacidad.</li>
+                </ul>
+            
+                <p>Con LeonelVPN, no solo navegas de forma más segura, sino que también puedes hacerlo de manera anónima y sin preocupaciones sobre tu información personal.</p>
+            </section>
+            
+            
+            <section id="beneficios">
+                <h2>Beneficios</h2>
+                <p>Descubre los beneficios de usar LeonelVPN:</p>
+                <ul>
+                    <li><strong>Navegación segura y anónima:</strong> Cifra tu tráfico y oculta tu IP para proteger tu privacidad.</li>
+                    <li><strong>Acceso sin restricciones geográficas:</strong> Con servidores globales, disfruta de contenido bloqueado en tu región.</li>
+                    <li><strong>Alta velocidad de conexión:</strong> Disfruta de una navegación fluida y transferencia de archivos rápida.</li>
+                    <li><strong>Protección contra amenazas online:</strong> Con cifrado AES-256 y protección contra fugas de IP/DNS.</li>
+                    <li><strong>Sin registro de actividad (No-Logs):</strong> Tu historial de navegación y datos personales nunca son almacenados.</li>
+                </ul>
+            </section>
+            
+
+            <section id="reseñas">
+                <h2>Reseñas</h2>
+                <div class="testimonials">
+                    <div class="testimonial">
+                        <p>"¡leonelVPN es increíble! Cumple con todas las promesas y más. Lo recomiendo ampliamente."</p>
+                        <p><strong>– Juan Pérez</strong></p>
+                    </div>
+                    <div class="testimonial">
+                        <p>"Nunca había usado una VPN tan eficiente. leonelVPN me ha sorprendido gratamente."</p>
+                        <p><strong>– María López</strong></p>
+                    </div>
+                    <div class="testimonial">
+                        <p>"La mejor VPN que he probado. Rápida y confiable, exactamente lo que necesitaba."</p>
+                        <p><strong>– Carlos Gómez</strong></p>
+                    </div>
+                    <div class="testimonial">
+                        <p>"leonelVPN supera mis expectativas en todos los aspectos. Excelente servicio."</p>
+                        <p><strong>– Ana Fernández</strong></p>
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="faq">
+                <h2>Preguntas Frecuentes</h2>
+                <p>Aquí puedes encontrar respuestas a las preguntas más comunes sobre LeonelVPN.</p>
+                <ul>
+                    <li><strong>¿Es seguro usar LeonelVPN?</strong> <br> Sí, LeonelVPN utiliza cifrado de alta calidad (AES-256) y protocolos seguros como WireGuard® y OpenVPN.</li>
+                    <li><strong>¿Puedo usar LeonelVPN en varios dispositivos?</strong> <br> Sí, LeonelVPN es compatible con múltiples dispositivos, incluyendo PCs, smartphones y tablets.</li>
+                    <li><strong>¿Cuántos servidores tiene LeonelVPN?</strong> <br> LeonelVPN tiene servidores en varios países, garantizando alta velocidad y acceso sin restricciones geográficas.</li>
+                    <li><strong>¿Necesito crear una cuenta para usar LeonelVPN?</strong> <br> No, LeonelVPN permite el acceso inmediato a sus servidores con una suscripción activa, sin necesidad de registrarse.</li>
+                    <li><strong>¿Cuánto cuesta LeonelVPN?</strong> <br> LeonelVPN ofrece suscripciones mensuales y anuales a precios competitivos, sin publicidad ni venta de datos.</li>
+                </ul>
+            </section>
+        </div>
+        <footer>
+            <p>&copy; 2024-2025 ChatGPT</p>
+        </footer>
+        <script>
+            document.querySelectorAll(".playVideo").forEach(button => {
+                button.onclick = function() {
+                    var video = document.createElement("video");
+                    video.src = "video.mp4"; // Reemplaza con la URL correcta de tu video
+                    video.style.position = "fixed";
+                    video.style.top = "0";
+                    video.style.left = "0";
+                    video.style.width = "100%";
+                    video.style.height = "100%";
+                    video.style.objectFit = "cover";
+                    video.style.zIndex = "9999";
+                    video.autoplay = true;
+                    video.controls = true;
+        
+                    document.body.appendChild(video);
+        
+                    // Poner el video en pantalla completa automáticamente
+                    video.requestFullscreen().catch(err => console.log("Error al poner en fullscreen:", err));
+        
+                    // Remover el video cuando termine
+                    video.onended = function() {
+                        video.remove();
+                    };
+                };
+            });
+        </script>
+    </body>
+    </html>
 
