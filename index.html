@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Leonel1022">
+    <meta name="robots" content="noindex">
+    <meta name="description" content="LeoShield: Recursos y herramientas para proteger tus dispositivos contra malware, phishing y filtraciones de correo.">
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/Leonel1022/leonel1022.github.io/main/faraicon.ico">
+    <meta property="og:title" content="Leonel1022" />
+    <meta property="og:description" content="Recursos y herramientas para proteger tus dispositivos contra malware, phishing y filtraciones de correo en LeoShield." />
+    <meta property="og:image" content="https://github.com/Leonel1022/leonel1022.github.io/blob/main/gato.jpg?raw=true" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>LeoShield</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: url('https://www.transparenttextures.com/patterns/dark-mosaic.png'), linear-gradient(to bottom, #121212, #1c1c1c);
+            background-size: cover, auto;
+            background-blend-mode: overlay;
+            background-attachment: fixed;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #121212;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        .preloader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .preloader i {
+            font-size: 40px;
+            color: #ff6d00;
+        }
+
+        header {
+            background: linear-gradient(180deg, #1c1c1c, #2a2a2a);
+            padding: 15px;
+            text-align: center;
+            border-bottom: 2px solid #444;
+            transition: box-shadow 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .Leo:hover {
+            color: #c0c0c0;
+            transition: 0.5s;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #1f1f1f;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #ffffff;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 10px;
+            left: 20px;
+            background-color: #ff6d00;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff6d00;
+        }
+
+        nav a:hover::after {
+            width: calc(100% - 40px);
+        }
+
+        nav a.active {
+            color: #ff6d00;
+            border-bottom: 2px solid #ff6d00;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        .section {
+            background-color: #1c1c1c;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            border-top: 3px solid #ff6d00;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .section:nth-child(odd) {
+            border-top-color: #e68900;
+        }
+
+        .section:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+        }
+
+        .section:first-of-type h2 {
+            color: #ffffff;
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #ff6d00;
+        }
+
+        .section a {
+            color: #007bff;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 10px 0;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .section a:hover {
+            color: #0056b3;
+        }
+
+        .section a[target="_blank"]::after {
+            content: '\f35d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-left: 5px;
+            font-size: 0.9em;
+        }
+
+        .section a:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        .section a i {
+            transition: transform 0.3s ease;
+        }
+        .section a:hover i {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .section p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #1c1c1c;
+            color: #ffffff;
+            border-top: 2px solid #444;
+            margin-top: 30px;
+            font-size: 16px;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            cursor: pointer;
+            padding: 12px;
+            background-color: #333;
+            color: #ffffff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question::before {
+            content: '\f054';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-question:hover {
+            background-color: #555;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            margin-top: 5px;
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+            font-size: 14px;
+        }
+
+        .faq-answer.show {
+            display: block;
+        }
+
+        #faq {
+            background: linear-gradient(180deg, #2a2a2a, #1c1c1c);
+        }
+
+        .language-selector {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .language-selector button {
+            background: linear-gradient(45deg, #ff6d00, #e68900);
+            color: #ffffff;
+            border: none;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            transition: background-color 0.3s ease;
+        }
+
+        .language-selector button:hover {
+            background: linear-gradient(45deg, #e68900, #ff6d00);
+        }
+
+        .language-menu {
+            display: none;
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+        }
+
+        .language-menu a {
+            display: block;
+            padding: 8px 16px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .language-menu a:hover {
+            background-color: #555;
+        }
+
+        .language-selector.show .language-menu {
+            display: block;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 18px;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+            color: #d1d0d0;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #ff6d00, #e68900);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .scroll-top.show {
+            opacity: 1;
+        }
+
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: #ffffff;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .close-nav {
+            display: none;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Mobile Styles */
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            header img {
+                width: 24px;
+            }
+
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: 10px;
+                left: 10px;
+            }
+
+            .close-nav {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #1f1f1f;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                z-index: 1000;
+            }
+
+            nav.show {
+                display: flex;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+
+            nav a {
+                padding: 15px;
+                font-size: 16px;
+                margin: 5px 0;
+                display: block;
+            }
+
+            nav a::after {
+                display: none; /* Remove hover underline effect on mobile */
+            }
+
+            nav a:hover {
+                background-color: #333;
+                color: #ff6d00;
+            }
+
+            .container {
+                padding: 0 15px;
+                margin: 15px auto;
+            }
+
+            .section {
+                padding: 15px;
+                border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+            }
+
+            .section h2 {
+                font-size: 1.4em;
+            }
+
+            .section p, .section a {
+                font-size: 14px;
+            }
+
+            .section a[target="_blank"]::after {
+                font-size: 0.8em;
+            }
+
+            .section a:hover::after {
+                display: none; /* Disable tooltips on mobile */
+            }
+
+            .faq-question {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .language-selector {
+                top: 5px;
+                right: 5px;
+            }
+
+            .language-selector button {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .language-menu {
+                top: 35px;
+            }
+
+            .language-menu a {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+
+            .scroll-top {
+                width: 50px;
+                height: 50px;
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .scroll-top i {
+                font-size: 20px;
+            }
+
+            footer {
+                padding: 15px 0;
+                font-size: 14px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="preloader">
+        <i class="fas fa-spinner fa-spin"></i>
+    </div>
+
+    <header>
+        <button class="hamburger" onclick="toggleNavMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <h1>
+            <img src="https://raw.githubusercontent.com/Leonel1022/leonel1022.github.io/main/faraicon.ico" alt="Logo" style="width: 32px; vertical-align: middle; margin-right: 10px;">
+            <span class="Leo">Leo</span><span class="Shield">Shield</span>
+        </h1>
+        <div class="menu">
+            <a href="https://leonel1022.github.io/Leonel1022/">Menu</a>
+        </div>
+        <div class="language-selector" onclick="toggleLanguageMenu()">
+            <button>Español</button>
+            <div class="language-menu">
+                <a href="LeoShield-en.html">English</a>
+                <a href="index.html">Español</a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <button class="close-nav" onclick="toggleNavMenu()">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="nav-menu">
+            <a href="#about" onclick="toggleNavMenu()">Sobre mí</a>
+            <a href="#recommended" onclick="toggleNavMenu()">Programas Recomendados</a>
+            <a href="#file-analysis" onclick="toggleNavMenu()">Análisis de Archivos</a>
+            <a href="#link-analysis" onclick="toggleNavMenu()">Análisis de Links</a>
+            <a href="#email-filter" onclick="toggleNavMenu()">Filtración de Mail</a>
+            <a href="#faq" onclick="toggleNavMenu()">FAQ</a>
+            <a href="#contact" onclick="toggleNavMenu()">Contacto</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="about" class="section">
+            <h2 id="HolaSoyLeo">Hola, soy Leo</h2>
+            <p>Soy un estudiante en programación, desarrollo web y ciberseguridad.
+               <br> Me apasiona aplicar mis habilidades en estos campos para resolver problemas y crear soluciones innovadoras. 
+               <br> Actualmente, estoy profundizando mis conocimientos en estas areas para desarrollar una sólida base de conocimientos y práctica.</p>
+            <p>En esta página encontrarás recursos y herramientas para proteger tus dispositivos contra el malware.</p>
+        </div>
+
+        <div id="recommended" class="section">
+            <h2 id="programasrecomendados">Programas recomendados y guías</h2>
+            <a href="https://www.maldroid.dev/NoMalware" target="_blank" data-tooltip="Guía para proteger tu dispositivo"><i class="fas fa-book"></i> Guía de Maldroid.dev</a>
+            <a href="https://kaspersky.com/downloads/free-antivirus" target="_blank" data-tooltip="Antivirus gratuito y confiable"><i class="fas fa-shield-alt"></i> Kaspersky Antivirus</a>
+            <a href="https://ublockorigin.com/" target="_blank" data-tooltip="Bloqueador de anuncios y trackers"><i class="fas fa-ad"></i> uBlock Origin</a>
+            <a href="https://chromewebstore.google.com/detail/malwarebytes-browser-guar/ihcjicgdanjaechkgeegckofjjedodee" target="_blank" data-tooltip="Protección para navegadores"><i class="fas fa-browser"></i> Malwarebytes Browser Guard</a>
+        </div>
+
+        <div id="file-analysis" class="section">
+            <h2 id="analisismalware">Análisis de archivos/malware</h2>
+            <a href="https://www.virustotal.com/gui/home/upload" target="_blank" data-tooltip="Escanea archivos con más de 70 antivirus"><i class="fas fa-file"></i> VirusTotal</a>
+            <a href="https://opentip.kaspersky.com" target="_blank" data-tooltip="Análisis dinámico de archivos"><i class="fas fa-search"></i> Kaspersky OpenTip</a>
+            <!--
+            <a href="https://tria.ge/login?return_to=%2Fdashboard" target="_blank">triage</a>
+            <a href="https://www.hybrid-analysis.com/" target="_blank">Hybrid Analysis</a>
+            <a href="https://www.filescan.io/scan" target="_blank">FileScan</a> --> 
+        </div>
+
+        <div id="link-analysis" class="section">
+            <h2 id="phishing">Análisis de sitios web/links</h2>
+            <a href="https://www.virustotal.com/gui/home/url" target="_blank" data-tooltip="Escanea URLs con múltiples motores"><i class="fas fa-link"></i> VirusTotal</a>
+            <a href="https://opentip.kaspersky.com/?tab=lookup" target="_blank" data-tooltip="Verifica URLs contra phishing"><i class="fas fa-search"></i> Kaspersky OpenTip (URL)</a>
+            <!--
+            <a href="https://radar.cloudflare.com/scan" target="_blank">Cloudflare Radar</a>
+            <a href="https://phish.report/analysis" target="_blank">Phish report</a>
+            <a href="https://sitereport.netcraft.com/" target="_blank">Netcraft SiteReport</a> --> 
+        </div>
+
+        <div id="email-filter" class="section">
+            <h2 id="spam">Filtración de correo electrónico</h2>
+            <a href="https://www.malwarebytes.com/digital-footprint" target="_blank" data-tooltip="Revisa tu huella digital"><i class="fas fa-envelope"></i> Malwarebytes Digital Footprint</a>
+            <a href="https://haveibeenpwned.com/" target="_blank" data-tooltip="Verifica si tu email ha sido comprometido"><i class="fas fa-exclamation-triangle"></i> Have I Been Pwned</a>
+        </div>
+
+        <div class="section">
+            <h2>Explicación</h2>
+            <p>En esta sección, se explican brevemente las herramientas mencionadas anteriormente.</p>
+            <p>* <a href="https://www.virustotal.com/" data-tooltip="Análisis estático de archivos"><i class="fas fa-file"></i> VirusTotal</a> - Realiza un análisis estático del archivo con más de 70 antivirus diferentes (sin necesidad de registro, tamaño máximo de archivo de 650 MB).</p>
+            <p>* <a href="https://opentip.kaspersky.com/" data-tooltip="Análisis dinámico y estático"><i class="fas fa-search"></i> Kaspersky OpenTip</a> - Similar a VirusTotal pero realiza también un análisis dinámico (sin necesidad de registro, tamaño máximo de archivo de 256 MB).</p>
+            <p>* <a href="https://www.virustotal.com/gui/home/url" data-tooltip="Escanea URLs con más de 90 motores"><i class="fas fa-link"></i> VirusTotal URL</a> - Escanea enlaces con más de 90 motores (sin necesidad de registro).</p>
+            <p>* <a href="https://opentip.kaspersky.com/?tab=lookup" data-tooltip="Verifica URLs contra phishing"><i class="fas fa-search"></i> Kaspersky OpenTip URL</a> - Compara enlaces con la base de datos de Kaspersky de sitios maliciosos/sitios de phishing (sin necesidad de registro).</p>
+        </div>
+
+        <div id="faq" class="section">
+            <h2 id="FAQ">Preguntas Frecuentes</h2>
+            <div class="faq">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">¿Cómo puedo proteger mi dispositivo contra el malware?</div>
+                    <div class="faq-answer">Existen varias medidas que puedes tomar para proteger tu dispositivo contra el malware, como mantener tu software actualizado, utilizar programas antivirus de confianza, evitar hacer clic en enlaces sospechosos y descargar aplicaciones solo desde fuentes confiables.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">¿Cuál es la diferencia entre un análisis estático y dinámico de archivos?</div>
+                    <div class="faq-answer">Un análisis estático de archivos examina el contenido de un archivo sin ejecutarlo, mientras que un análisis dinámico ejecuta el archivo en un entorno controlado para observar su comportamiento en tiempo real.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">¿Por qué es importante proteger mi correo electrónico?</div>
+                    <div class="faq-answer">Proteger tu correo electrónico es crucial porque es una de las principales formas en que los ciberdelincuentes intentan acceder a tu información personal o comprometer la seguridad de tus cuentas en línea.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">¿Debería usar un antivirus en mi dispositivo móvil?</div>
+                    <div class="faq-answer">Usar un antivirus en PC es crucial, pero en dispositivos móviles no es necesario; es mejor subir los archivos a VirusTotal antes de ejecutarlos.</div>
+                </div>
+            </div>
+            <p>Para más preguntas, visita nuestro <a href="FAQ.html" data-tooltip="Más preguntas frecuentes"><i class="fas fa-question-circle"></i> FAQ</a></p>
+        </div>
+
+        <div id="contact" class="section">
+            <h2 id="contactame">Información adicional</h2>
+            <p>Gracias por visitar LeoShield: Tu Escudo Contra el Malware.</p>
+            <p>Si necesitas ayuda, no dudes en contáctarnos por <a href="https://discord.com/users/942945514628988958" data-tooltip="Contáctanos en Discord"><i class="fab fa-discord"></i> Discord</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 LeoShield. Todos los derechos reservados.</p>
+    </footer>
+
+    <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        function toggleFAQ(element) {
+            var answer = element.nextElementSibling;
+            var isActive = answer.classList.contains('show');
+            document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('show'));
+            document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
+            if (!isActive) {
+                answer.classList.add('show');
+                element.classList.add('active');
+            }
+        }
+
+        function toggleLanguageMenu() {
+            var languageSelector = document.querySelector('.language-selector');
+            languageSelector.classList.toggle('show');
+        }
+
+        function toggleNavMenu() {
+            var nav = document.querySelector('nav');
+            nav.classList.toggle('show');
+        }
+
+        window.addEventListener('load', () => {
+            document.querySelector('.preloader').classList.add('hidden');
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const scrollTopBtn = document.querySelector('.scroll-top');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+                scrollTopBtn.classList.add('show');
+            } else {
+                header.classList.remove('scrolled');
+                scrollTopBtn.classList.remove('show');
+            }
+
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('nav a');
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
