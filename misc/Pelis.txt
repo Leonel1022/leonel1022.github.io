@@ -123,3 +123,5 @@
 123.el tesoro del amazonas (pelicula)
 124.soy rada (pelicula)
 125.tin y tina (pelicula)
+126.jimmy burbuja (pelicula)
+127.el telefono del señor harrigan (pelicula)
