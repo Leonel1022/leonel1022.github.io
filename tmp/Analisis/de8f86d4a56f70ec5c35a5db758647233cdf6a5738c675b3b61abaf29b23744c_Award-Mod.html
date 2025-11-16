@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="author" content="Leoshield_leonel1022">
+    <title>LeoShield</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxvA5ZY93p0q0tw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background-color: #121212;
+            color: #e5e5e5;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 3rem auto;
+            padding: 2.5rem;
+            background-color: #1e1e1e;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            color: #ffae4f;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+
+        h2.section-header {
+            color: #ffae4f;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #ffae4f;
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        h2.section-header::before {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            margin-right: 0.75rem;
+            color: #ffd86b;
+            font-size: 1.4rem;
+        }
+
+        .section-info h2.section-header::before { content: "\f05a"; } /* Info circle */
+        .section-hashes h2.section-header::before { content: "\f692"; } /* Fingerprint */
+        .section-security h2.section-header::before { content: "\f3ed"; } /* Shield */
+        .section-opinion h2.section-header::before { content: "\f4ad"; } /* Comment */
+        .section-references h2.section-header::before { content: "\f0c1"; } /* Link */
+        .section-images h2.section-header::before { content: "\f03e"; } /* Image */
+
+        .section {
+            margin: 2.5rem 0;
+            padding-bottom: 1.5rem;
+        }
+
+        .data-item {
+            margin: 0.6rem 0;
+            font-size: 1rem;
+        }
+
+        .data-label {
+            font-weight: 600;
+            color: #ffd86b;
+            margin-right: 0.5rem;
+        }
+
+        .collapsible {
+            background-color: #2a2a2a;
+            color: #e5e5e5;
+            cursor: pointer;
+            padding: 1rem 1.2rem;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .collapsible::before {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            margin-right: 0.75rem;
+            color: #ffae4f;
+            font-size: 1rem;
+        }
+
+        .collapsible-mal-details::before { content: "\f188"; } /* Bug */
+        .collapsible-av::before { content: "\f544"; } /* Search */
+        .collapsible-links::before { content: "\f0c1"; } /* Link */
+        .collapsible-images::before { content: "\f03e"; } /* Image */
+
+        .collapsible:hover {
+            background-color: #3c3c3c;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .collapsible::after {
+            content: '\25BC'; /* Down arrow */
+            font-size: 0.9rem;
+            position: absolute;
+            right: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+
+        .collapsible.active::after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background-color: #252525;
+            border-radius: 8px;
+            margin-top: 0.75rem;
+            padding: 0 1.2rem;
+        }
+
+        .content.open {
+            padding: 1.2rem;
+        }
+
+        .image-grid,
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .image-grid img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .image-grid img:hover {
+            transform: scale(1.05);
+        }
+
+        .links-grid a {
+            color: #ffae4f;
+            text-decoration: none;
+            padding: 0.8rem;
+            background-color: #2a2a2a;
+            border-radius: 8px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .links-grid a::before {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            margin-right: 0.5rem;
+            content: "\f08e"; /* External link */
+        }
+
+        .links-grid a:hover {
+            background-color: #3c3c3c;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            font-size: 0.95rem;
+            color: #888;
+            border-top: 1px solid #333;
+            margin-top: 2rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 100%;
+                margin: 1.5rem;
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2.section-header {
+                font-size: 1.4rem;
+            }
+
+            .collapsible {
+                font-size: 1rem;
+                padding: 0.8rem 1rem;
+            }
+
+            .image-grid,
+            .links-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .data-item {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 0.9rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2.section-header {
+                font-size: 1.3rem;
+            }
+
+            .section {
+                margin: 1.5rem 0;
+            }
+
+            footer {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<!--plantilla ultima vez actualizada el 11-12-2024-->
+<body>
+    <div class="container">
+        <h1>Informe de Análisis - LeoShield</h1>
+
+        <div class="section section-info">
+            <h2 class="section-header">Información General</h2>
+            <p class="data-item"><span class="data-label">Archivo:</span> com.telltalegames.minecraft100_1.37b-APK_Award-Mod.apk </p>
+            <p class="data-item"><span class="data-label">Tipo:</span> Ejecutable (.apk)</p>
+            <p class="data-item"><span class="data-label">Tamaño:</span> 19.98 MB (20955294 B)</p>
+            <p class="data-item"><span class="data-label">Fecha:</span> 2025-11-15 (AAAA/DD/MM)</p>
+            <p class="data-item"><span class="data-label">Sistema analizado:</span> Android 10 x64/ 9 x86</p>
+            <p class="data-item"><span class="data-label">Método de análisis:</span> Sandbox + Motores AV</p>
+        </div>
+
+        <div class="section section-opinion">
+            <h2 class="section-header">Opinión Personal</h2>
+            <p class="data-item">No puedo confirmar que sea un malware (virus) del tipo ADware por que al ser un complemento de minecraft,necesito tener la app instalada para ver su comportamiento,pero por los analisis automaticos,pareciera tener dominios de anuncios cargados en espera.</p>
+        </div>
+
+        <div class="section section-hashes">
+            <h2 class="section-header">Hashes</h2>
+            <p class="data-item"><span class="data-label">SHA256:</span> de8f86d4a56f70ec5c35a5db758647233cdf6a5738c675b3b61abaf29b23744c</p>
+            <p class="data-item"><span class="data-label">MD5:</span> eaed1d6d5476cd4493a2fad6faaf9a94</p>
+            <p class="data-item"><span class="data-label">SHA1:</span> 7c286dd324c3254cf9bcf626f4233fbdbd577969</p>
+        </div>
+
+        <div class="section section-security">
+            <h2 class="section-header">Análisis de Seguridad</h2>
+            <p class="data-item"><span class="data-label">Rastreadores:</span> 6</p>
+            <p class="data-item"><span class="data-label">Anuncios:</span> 2</p>
+            <p class="data-item"><span class="data-label">Malware:</span> detectado</p>
+
+            <button class="collapsible collapsible-mal-details">Detalles de Malware</button>
+            <div class="content">
+                <p><span class="data-label">Tipo:</span> Adware (PUP, no confirmado)</p>
+                <p><span class="data-label">Detalles:</span> sin Actividad , con carga útil visible</p>
+            </div>
+
+            <p class="data-item"><span class="data-label">Detecciones AV:</span> 15 motores</p>
+            <button class="collapsible collapsible-av">Motores Detectores</button>
+            <div class="content">
+                <p>AhnLab-V3: PUP/Android.Fyben.G.1188044</p>
+  <p>Alibaba: AdWare/Android/Fyben.a897c084</p>
+  <p>Avast: Android:Fyben-A [PUP]</p>
+  <p>AVG: Android:Fyben-A [PUP]</p>
+  <p>BitDefenderFalx: Android.Adware.Fyben.B</p>
+  <p>DrWeb: Android.Sliggen.Susp.39534</p>
+  <p>ESET-NOD32: Android/AdDisplay.Fyben.A Potentially ...</p>
+  <p>Fortinet: Adware/Fyben(Android)</p>
+  <p>Ikarus: PUA.AndroidOS.Fyben</p>
+  <p>K7GW: Adware ( 005975eb1 )</p>
+  <p>MaxSecure: Android.fyben.a</p>
+  <p>QuickHeal: Cid.android.fyben.1662489184</p>
+  <p>Symantec Mobile Insight: AdLibrary:Generisk</p>
+  <p>Trustlook: Android.PUA.Adware</p>
+            </div>
+        </div>
+
+        <div class="section section-references">
+            <h2 class="section-header">Extras</h2>
+            <button class="collapsible collapsible-links">Mostrar enlaces</button>
+            <div class="content links-grid">
+                <a href="https://www.virustotal.com/gui/file/de8f86d4a56f70ec5c35a5db758647233cdf6a5738c675b3b61abaf29b23744c/detection">VirusTotal</a>
+            </div>
+        </div>
+
+        <div class="section section-images">
+            <h2 class="section-header">Imágenes / Capturas</h2>
+            <button class="collapsible collapsible-images">Mostrar capturas</button>
+            <div class="content image-grid">
+            </div>
+        </div>
+
+    </div>
+
+    <footer>Reporte generado automáticamente por LeoShield.</footer>
+
+    <script>
+        document.querySelectorAll('.collapsible').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const open = content.classList.contains('open');
+
+                if (open) {
+                    content.style.maxHeight = '0';
+                    content.classList.remove('open');
+                    btn.classList.remove('active');
+                } else {
+                    content.classList.add('open');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    btn.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
