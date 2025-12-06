@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Impostor Anotador</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --accent-color: #bb86fc;
+            --danger-color: #cf6679;
+            --success-color: #03dac6;
+            --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-family);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            text-align: center;
+            transition: height 0.3s;
+        }
+
+        h1, h2 { margin-bottom: 20px; font-weight: 300; letter-spacing: 1px; }
+        h1 { color: var(--accent-color); }
+
+        /* Formularios y Botones */
+        .input-group { margin-bottom: 15px; text-align: left; }
+        label { display: block; margin-bottom: 5px; font-size: 0.9rem; color: #aaa; }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            background: #2c2c2c;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            resize: none; 
+        }
+
+        input:focus, select:focus, textarea:focus { border-color: var(--accent-color); }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn-primary { background-color: var(--accent-color); color: #000; }
+        .btn-secondary { background-color: #333; color: white; margin-top: 5px;}
+        .btn-danger { background-color: var(--danger-color); color: #000; }
+        .btn-small { width: auto; padding: 8px 15px; font-size: 0.9rem; margin-top: 0; margin-left: 5px;}
+
+        button:active { opacity: 0.8; }
+
+        /* Chips de Categorías */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            background: #252525;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+        .cat-tag {
+            background: #333;
+            color: #888;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+            user-select: none;
+        }
+        .cat-tag.active {
+            background: var(--accent-color);
+            color: #000;
+            font-weight: bold;
+            box-shadow: 0 0 5px rgba(187, 134, 252, 0.4);
+        }
+
+        /* Lista de Jugadores */
+        #player-list-display {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 15px;
+            max-height: 120px;
+            overflow-y: auto;
+        }
+        #player-list-display li {
+            background: #252525;
+            padding: 8px 12px;
+            margin-bottom: 5px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .remove-player { color: var(--danger-color); cursor: pointer; font-weight: bold; }
+
+        /* Pantallas */
+        .screen { display: none; animation: fadeIn 0.3s ease; }
+        .screen.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .hidden { display: none; }
+
+        /* Mecánica de Revelar */
+        .reveal-card {
+            background: #252525;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #333;
+        }
+
+        .secret-content { font-size: 1.5rem; font-weight: bold; color: var(--success-color); }
+        .impostor-text { color: var(--danger-color); }
+
+        .cover-slider {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: #333;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            transition: transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+            z-index: 10; cursor: pointer;
+        }
+        .cover-slider p { margin-top: 10px; font-size: 0.9rem; color: #ccc; pointer-events: none;}
+        .lock-icon { width: 24px; height: 18px; border: 2px solid #ccc; border-radius: 4px; position: relative; }
+        .lock-icon:before { content: ''; position: absolute; left: 5px; top: -10px; width: 10px; height: 10px; border: 2px solid #ccc; border-bottom: none; border-radius: 10px 10px 0 0; }
+        
+        .revealed .cover-slider { transform: translateY(100%); }
+
+        /* Votación y Resultados */
+        .vote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;}
+        .vote-btn { background: #252525; padding: 15px; border-radius: 8px; color: white; border: 1px solid #333; font-size: 1rem;}
+        .ejection-result-box { padding: 20px; border-radius: 10px; background: #222; border: 1px solid #444; margin: 20px 0; }
+        .ejection-role { font-size: 1.8rem; font-weight: bold; margin-top: 10px; display: block; }
+        .result-item { background: #252525; margin-bottom: 10px; padding: 10px; border-radius: 8px; text-align: left; }
+        .role-highlight { float: right; font-weight: bold; }
+        .is-impostor { color: var(--danger-color); }
+        .is-civilian { color: var(--success-color); }
+        .is-dead { text-decoration: line-through; opacity: 0.5; }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div id="screen-setup" class="screen active">
+        <h1>IMPOSTOR</h1>
+        
+        <div class="input-group">
+            <label>Agregar Jugador</label>
+            <div style="display: flex;">
+                <input type="text" id="player-name-input" placeholder="Nombre..." onkeypress="handleEnter(event)">
+                <button class="btn-primary btn-small" onclick="addPlayer()">+</button>
+            </div>
+        </div>
+        <ul id="player-list-display"></ul>
+
+        <div class="input-group">
+            <label>Categoría</label>
+            <select id="category-select" onchange="handleSetupChange()">
+                </select>
+        </div>
+
+        <div id="category-filter-area" class="input-group hidden">
+            <label>Toca para activar/desactivar:</label>
+            <div class="tags-container" id="tags-container">
+                </div>
+            <p style="font-size: 0.7rem; color:#666; margin-top:5px;">Se elegirá una categoría al azar de las marcadas.</p>
+        </div>
+
+        <div id="custom-area" class="input-group hidden">
+            <label>Tus palabras (separadas por coma):</label>
+            <textarea id="custom-words-input" rows="3" placeholder="Ej: Pizza, Hamburguesa, Sushi..."></textarea>
+        </div>
+
+        <div class="input-group">
+            <label>Cantidad de Impostores</label>
+            <select id="impostor-count-select" onchange="handleSetupChange()">
+                <option value="1">1 Impostor</option>
+                <option value="2">2 Impostores</option>
+                <option value="3">3 Impostores</option>
+                <option value="custom">✍️ Personalizado</option>
+                <option value="random">❓ Aleatorio (1 a N-1)</option>
+            </select>
+        </div>
+
+        <div id="impostor-custom-input-group" class="input-group hidden">
+            <input type="number" id="custom-impostor-count" placeholder="Escribe el número exacto" min="1" value="4">
+        </div>
+
+        <button class="btn-primary" onclick="startGame()">Comenzar Partida</button>
+    </div>
+
+    <div id="screen-reveal" class="screen">
+        <h2 id="turn-player-name">Turno de [Nombre]</h2>
+        <p style="font-size: 0.9rem; opacity: 0.7;">Pasa el dispositivo a este jugador.</p>
+
+        <div id="card-container" class="reveal-card" onclick="toggleSecret()">
+            <div class="cover-slider">
+                <div class="lock-icon"></div>
+                <p>Mantén presionado o toca</p>
+            </div>
+            <div class="secret-content" id="secret-text"></div>
+        </div>
+        <p style="font-size: 0.8rem; color: #888; margin-bottom: 20px;">Memoriza y oculta rápido.</p>
+        <button class="btn-primary" id="next-player-btn" onclick="nextPlayer()" disabled>Siguiente Jugador</button>
+    </div>
+
+    <div id="screen-game" class="screen">
+        <h2>¡A Jugar!</h2>
+        <p style="margin-bottom: 30px; line-height: 1.5; color: #ccc;">
+            Debatan, pregunten y descubran quién miente.<br>
+            <span style="font-size: 0.8rem; color:#666;">(Categoría oculta)</span>
+        </p>
+        <button class="btn-primary" onclick="goToVoting()">Votar / Expulsar</button>
+        <button class="btn-danger" onclick="endGame()">Rendirse / Ver Todo</button>
+    </div>
+
+    <div id="screen-voting" class="screen">
+        <h2>Sala de Votación</h2>
+        <p>¿Quién es sospechoso?</p>
+        <div id="voting-grid" class="vote-grid"></div>
+        <button class="btn-secondary" onclick="switchScreen('screen-game')">Cancelar</button>
+    </div>
+
+    <div id="screen-ejection" class="screen">
+        <h2>Resultado</h2>
+        <div class="ejection-result-box">
+            <span id="ejected-name" style="font-size: 1.2rem; color: #aaa;"></span>
+            <br>era...
+            <span id="ejected-role" class="ejection-role"></span>
+        </div>
+        <button class="btn-primary" onclick="continueGame()">Seguir Jugando</button>
+        <button class="btn-danger" onclick="endGame()">Terminar Partida</button>
+    </div>
+
+    <div id="screen-results" class="screen">
+        <h2>Partida Finalizada</h2>
+        <p>La palabra era: <strong id="reveal-word" style="color: var(--success-color)"></strong></p>
+        <div id="results-list"></div>
+        <button class="btn-primary" onclick="resetGame()">Configurar Nueva Partida</button>
+    </div>
+
+</div>
+
+<script>
+    // --- DATOS ---
+    const database = {
+        "Deportes": ["Fútbol", "Tenis", "Natación", "Baloncesto", "Voleibol", "Rugby", "Golf", "Boxeo", "Surf", "Atletismo", "Ciclismo", "Hockey", "Esgrima", "Gimnasia", "Polo Acuático", "Béisbol", "Judo"],
+        "Cocina": ["Tenedor", "Sartén", "Licuadora", "Microondas", "Cuchillo", "Olla", "Cafetera", "Tostadora", "Rallador", "Batidora", "Tabla de cortar", "Cuchara", "Colador", "Servilleta", "Vasos"],
+        "Películas": ["Titanic", "El Padrino", "Harry Potter", "Star Wars", "Avatar", "Jurassic Park", "El Rey León", "Matrix", "Avengers", "Terminator", "Piratas del Caribe", "Pulp Fiction", "Forrest Gump", "Parásitos", "Gladiador"],
+        "Series": ["Breaking Bad", "Game of Thrones", "Friends", "Stranger Things", "Los Simpson", "La Casa de Papel", "The Office", "Vikingos", "Peaky Blinders", "Euphoria", "Seinfeld", "Merlina", "Squid Game"],
+        "Materias": ["Matemáticas", "Historia", "Geografía", "Biología", "Química", "Física", "Arte", "Literatura", "Inglés", "Filosofía", "Economía", "Informática", "Educación Cívica", "Deportes"],
+        "Animales": ["León", "Elefante", "Perro", "Gato", "Águila", "Tiburón", "Serpiente", "Pingüino", "Jirafa", "Oso", "Delfín", "Caballo", "Cebra", "Rinoceronte", "Pez Payaso", "Murciélago"],
+        "Frutas": ["Manzana", "Banana", "Frutilla", "Uva", "Sandía", "Naranja", "Piña", "Limón", "Cereza", "Pera", "Mango", "Kiwi", "Durazno", "Palta", "Melón"],
+        "Países": ["España", "Argentina", "México", "Japón", "Francia", "Italia", "Brasil", "EEUU", "Alemania", "Canadá", "China", "India", "Egipto", "Rusia", "Australia"],
+        "Superhéroes": ["Batman", "Superman", "Spiderman", "Wonder Woman", "Iron Man", "Thor", "Hulk", "Flash", "Aquaman", "Capitán América", "Black Widow", "Doctor Strange", "Linterna Verde"],
+        "Profesiones": ["Médico", "Bombero", "Policía", "Maestro", "Ingeniero", "Abogado", "Cocinero", "Astronauta", "Arquitecto", "Periodista", "Mecánico", "Piloto", "Bailarín", "Diseñador"]
+    };
+
+    let players = [];
+    let currentPlayerIndex = 0;
+    let currentWord = "";
+    let currentCategory = "";
+    let assignedRoles = []; 
+    let isRevealed = false;
+    let deadPlayers = [];
+
+    // --- INICIALIZACIÓN ---
+    window.onload = () => {
+        initCategorySelect();
+        initCategoryTags();
+        handleSetupChange(); // Establece el estado inicial de los campos condicionales
+    };
+
+    function initCategorySelect() {
+        const select = document.getElementById('category-select');
+        select.innerHTML = ''; 
+
+        let optRand = document.createElement('option');
+        optRand.value = "random_all";
+        optRand.innerText = "🎲 Aleatorio (Todo)";
+        select.appendChild(optRand);
+
+        let optMix = document.createElement('option');
+        optMix.value = "random_mix";
+        optMix.innerText = "⚙️ Mezcla (Elegir cuáles...)";
+        optMix.style.fontWeight = "bold";
+        optMix.style.color = "#bb86fc";
+        select.appendChild(optMix);
+
+        let optCust = document.createElement('option');
+        optCust.value = "custom";
+        optCust.innerText = "✍️ Crear Propia Lista";
+        select.appendChild(optCust);
+
+        for (let cat in database) {
+            let opt = document.createElement('option');
+            opt.value = cat;
+            opt.innerText = `${cat} (${database[cat].length})`;
+            select.appendChild(opt);
+        }
+    }
+
+    function initCategoryTags() {
+        const container = document.getElementById('tags-container');
+        container.innerHTML = '';
+        for (let cat in database) {
+            const tag = document.createElement('div');
+            tag.className = 'cat-tag active'; 
+            tag.innerText = cat;
+            tag.dataset.cat = cat;
+            tag.onclick = function() {
+                this.classList.toggle('active');
+            };
+            container.appendChild(tag);
+        }
+    }
+    
+    // Maneja la visibilidad de todos los campos condicionales
+    function handleSetupChange() {
+        // Lógica de Categoría
+        const catVal = document.getElementById('category-select').value;
+        const customArea = document.getElementById('custom-area');
+        const filterArea = document.getElementById('category-filter-area');
+
+        if (catVal === 'custom') customArea.classList.remove('hidden');
+        else customArea.classList.add('hidden');
+
+        if (catVal === 'random_mix') filterArea.classList.remove('hidden');
+        else filterArea.classList.add('hidden');
+
+        // Lógica de Impostores
+        const impostorVal = document.getElementById('impostor-count-select').value;
+        const impostorCustomGroup = document.getElementById('impostor-custom-input-group');
+        
+        if (impostorVal === 'custom') impostorCustomGroup.classList.remove('hidden');
+        else impostorCustomGroup.classList.add('hidden');
+    }
+
+
+    // --- JUGADORES ---
+    function addPlayer() {
+        const input = document.getElementById('player-name-input');
+        const name = input.value.trim();
+        if (name && !players.includes(name)) {
+            players.push(name);
+            renderPlayerList();
+            input.value = '';
+        } else if (players.includes(name)) alert("Nombre repetido.");
+    }
+
+    function removePlayer(name) {
+        players = players.filter(p => p !== name);
+        renderPlayerList();
+    }
+
+    function renderPlayerList() {
+        const list = document.getElementById('player-list-display');
+        list.innerHTML = '';
+        players.forEach(p => {
+            const li = document.createElement('li');
+            li.innerHTML = `<span>${p}</span> <span class="remove-player" onclick="removePlayer('${p}')">×</span>`;
+            list.appendChild(li);
+        });
+    }
+
+    function handleEnter(e) { if (e.key === 'Enter') addPlayer(); }
+
+    // --- GAME LOGIC ---
+    function startGame() {
+        
+        // 1. VALIDACIÓN y CÁLCULO DE IMPOSTORES
+        if (players.length < 3) return alert("Mínimo 3 jugadores.");
+        
+        const impostorSelect = document.getElementById('impostor-count-select').value;
+        let impostorCount;
+
+        if (impostorSelect === 'random') {
+            const min = 1;
+            const max = players.length - 1; 
+            // Generar número aleatorio inclusivo [min, max]
+            impostorCount = Math.floor(Math.random() * (max - min + 1)) + min;
+            
+        } else if (impostorSelect === 'custom') {
+            impostorCount = parseInt(document.getElementById('custom-impostor-count').value);
+            if (isNaN(impostorCount) || impostorCount < 1) return alert("Por favor, introduce un número válido para los impostores.");
+            
+        } else {
+            impostorCount = parseInt(impostorSelect);
+        }
+
+        if (impostorCount >= players.length) return alert(`Demasiados impostores (${impostorCount}). Debe haber al menos un civil. Máximo permitido: ${players.length - 1}.`);
+        
+        // 2. SELECCIÓN DE PALABRA
+        const catSelect = document.getElementById('category-select').value;
+        let words = [];
+
+        if (catSelect === 'custom') {
+            const raw = document.getElementById('custom-words-input').value;
+            words = raw.split(',').map(w => w.trim()).filter(w => w.length > 0);
+            if (words.length < 2) return alert("Escribe al menos 2 palabras.");
+            currentCategory = "Personalizado";
+        } 
+        else if (catSelect === 'random_all') {
+            const keys = Object.keys(database);
+            const randKey = keys[Math.floor(Math.random() * keys.length)];
+            words = database[randKey];
+            currentCategory = randKey;
+        } 
+        else if (catSelect === 'random_mix') {
+            const tags = document.querySelectorAll('.cat-tag.active');
+            if (tags.length === 0) return alert("¡Selecciona al menos una categoría en los filtros!");
+            
+            const selectedCats = Array.from(tags).map(t => t.dataset.cat);
+            const randKey = selectedCats[Math.floor(Math.random() * selectedCats.length)];
+            words = database[randKey];
+            currentCategory = randKey;
+        } 
+        else {
+            words = database[catSelect];
+            currentCategory = catSelect;
+        }
+
+        currentWord = words[Math.floor(Math.random() * words.length)];
+        deadPlayers = [];
+
+        // 3. ASIGNAR ROLES
+        let roles = Array(players.length).fill('civilian');
+        let indices = players.map((_, i) => i);
+        
+        for (let i = indices.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [indices[i], indices[j]] = [indices[j], indices[i]];
+        }
+        
+        for(let i=0; i<impostorCount; i++) roles[indices[i]] = 'impostor';
+
+        assignedRoles = players.map((name, i) => {
+            return {
+                name: name,
+                role: roles[i],
+                displayWord: roles[i] === 'civilian' ? currentWord : `Pista: Algo de ${currentCategory}`
+            };
+        });
+
+        // 4. INICIO
+        currentPlayerIndex = 0;
+        switchScreen('screen-reveal');
+        updateRevealScreen();
+    }
+
+    // --- REVELACIÓN ---
+    function updateRevealScreen() {
+        if (currentPlayerIndex >= players.length) {
+            switchScreen('screen-game');
+            return;
+        }
+        const player = assignedRoles[currentPlayerIndex];
+        document.getElementById('turn-player-name').innerText = `Turno de: ${player.name}`;
+        
+        const card = document.getElementById('card-container');
+        card.classList.remove('revealed');
+        isRevealed = false;
+        
+        const btn = document.getElementById('next-player-btn');
+        btn.disabled = true;
+        btn.classList.replace('btn-primary', 'btn-secondary');
+
+        const secretDiv = document.getElementById('secret-text');
+        if (player.role === 'impostor') {
+            secretDiv.innerHTML = `<span class="impostor-text">¡ERES EL IMPOSTOR!</span><br><span style="font-size:0.8rem; color:#aaa; font-weight:normal">${player.displayWord}</span>`;
+        } else {
+            secretDiv.innerHTML = `<span>${player.displayWord}</span>`;
+        }
+    }
+
+    function toggleSecret() {
+        const card = document.getElementById('card-container');
+        const btn = document.getElementById('next-player-btn');
+        if (!isRevealed) {
+            card.classList.add('revealed');
+            isRevealed = true;
+            btn.disabled = false;
+            btn.classList.replace('btn-secondary', 'btn-primary');
+        } else {
+            card.classList.remove('revealed');
+            isRevealed = false;
+        }
+    }
+    
+    function nextPlayer() {
+        if (document.getElementById('card-container').classList.contains('revealed')) 
+            document.getElementById('card-container').classList.remove('revealed');
+        currentPlayerIndex++;
+        updateRevealScreen();
+    }
+
+    // --- VOTACIÓN ---
+    function goToVoting() {
+        const grid = document.getElementById('voting-grid');
+        grid.innerHTML = '';
+        assignedRoles.forEach(p => {
+            if(!deadPlayers.includes(p.name)) {
+                const btn = document.createElement('button');
+                btn.className = 'vote-btn';
+                btn.innerText = p.name;
+                btn.onclick = () => confirmVote(p);
+                grid.appendChild(btn);
+            }
+        });
+        switchScreen('screen-voting');
+    }
+
+    function confirmVote(p) {
+        if(confirm(`¿Expulsar a ${p.name}?`)) {
+            deadPlayers.push(p.name);
+            const rSpan = document.getElementById('ejected-role');
+            document.getElementById('ejected-name').innerText = p.name;
+            if(p.role === 'impostor') {
+                rSpan.innerText = "¡UN IMPOSTOR!";
+                rSpan.className = "ejection-role is-impostor";
+            } else {
+                rSpan.innerText = "UN CIVIL INOCENTE...";
+                rSpan.className = "ejection-role is-civilian";
+            }
+            switchScreen('screen-ejection');
+        }
+    }
+
+    function continueGame() {
+        if((players.length - deadPlayers.length) < 2) {
+            alert("Queda un solo jugador. El juego ha terminado.");
+            endGame();
+        } else switchScreen('screen-game');
+    }
+
+    // --- FIN ---
+    function endGame() {
+        switchScreen('screen-results');
+        document.getElementById('reveal-word').innerText = currentWord;
+        const list = document.getElementById('results-list');
+        list.innerHTML = '';
+        assignedRoles.forEach(p => {
+            const div = document.createElement('div');
+            div.className = 'result-item';
+            let status = deadPlayers.includes(p.name) ? " (Expulsado)" : "";
+            let roleTxt = p.role === 'impostor' ? 'IMPOSTOR' : 'Civil';
+            let roleCls = p.role === 'impostor' ? 'is-impostor' : 'is-civilian';
+            div.innerHTML = `<span class="${deadPlayers.includes(p.name)?'is-dead':''}">${p.name}${status}</span><span class="role-highlight ${roleCls}">${roleTxt}</span>`;
+            list.appendChild(div);
+        });
+    }
+
+    function resetGame() { switchScreen('screen-setup'); }
+    function switchScreen(id) {
+        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+    }
+</script>
+</body>
+</html>
