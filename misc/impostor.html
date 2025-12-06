@@ -2,8 +2,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="robots" content="noindex, follow">
+    <meta name="author" content="Leonel1022">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Anotador Impostor</title>
+    <title>Impostor Anotador</title>
     <style>
         :root {
             --bg-color: #121212;
@@ -208,6 +210,15 @@
         <div id="custom-area" class="input-group hidden">
             <label>Tus palabras (separadas por coma):</label>
             <textarea id="custom-words-input" rows="3" placeholder="Ej: Pizza, Hamburguesa, Sushi..."></textarea>
+            <p style="font-size: 0.7rem; color:#666; margin-top:5px;">*Si usas la opción "Con Pistas", solo verás la categoría.</p>
+        </div>
+        
+        <div class="input-group">
+            <label>Modo de Pistas</label>
+            <select id="hint-mode-select">
+                <option value="enabled">💡 Con Pistas (Ayuda al impostor)</option>
+                <option value="disabled">🚫 Sin Pistas (Solo la Categoría)</option>
+            </select>
         </div>
 
         <div class="input-group">
@@ -281,18 +292,176 @@
 </div>
 
 <script>
-    // --- DATOS ---
+    // --- DATOS (NUEVA ESTRUCTURA CON PALABRA Y 3 PISTAS) ---
+    // Cada elemento es un objeto { word: "Palabra", hints: ["PistaFácil", "PistaMedia", "PistaDifícil"] }
     const database = {
-        "Deportes": ["Fútbol", "Tenis", "Natación", "Baloncesto", "Voleibol", "Rugby", "Golf", "Boxeo", "Surf", "Atletismo", "Ciclismo", "Hockey", "Esgrima", "Gimnasia", "Polo Acuático", "Béisbol", "Judo"],
-        "Cocina": ["Tenedor", "Sartén", "Licuadora", "Microondas", "Cuchillo", "Olla", "Cafetera", "Tostadora", "Rallador", "Batidora", "Tabla de cortar", "Cuchara", "Colador", "Servilleta", "Vasos"],
-        "Películas": ["Titanic", "El Padrino", "Harry Potter", "Star Wars", "Avatar", "Jurassic Park", "El Rey León", "Matrix", "Avengers", "Terminator", "Piratas del Caribe", "Pulp Fiction", "Forrest Gump", "Parásitos", "Gladiador"],
-        "Series": ["Breaking Bad", "Game of Thrones", "Friends", "Stranger Things", "Los Simpson", "La Casa de Papel", "The Office", "Vikingos", "Peaky Blinders", "Euphoria", "Seinfeld", "Merlina", "Squid Game"],
-        "Materias": ["Matemáticas", "Historia", "Geografía", "Biología", "Química", "Física", "Arte", "Literatura", "Inglés", "Filosofía", "Economía", "Informática", "Educación Cívica", "Deportes"],
-        "Animales": ["León", "Elefante", "Perro", "Gato", "Águila", "Tiburón", "Serpiente", "Pingüino", "Jirafa", "Oso", "Delfín", "Caballo", "Cebra", "Rinoceronte", "Pez Payaso", "Murciélago"],
-        "Frutas": ["Manzana", "Banana", "Frutilla", "Uva", "Sandía", "Naranja", "Piña", "Limón", "Cereza", "Pera", "Mango", "Kiwi", "Durazno", "Palta", "Melón"],
-        "Países": ["España", "Argentina", "México", "Japón", "Francia", "Italia", "Brasil", "EEUU", "Alemania", "Canadá", "China", "India", "Egipto", "Rusia", "Australia"],
-        "Superhéroes": ["Batman", "Superman", "Spiderman", "Wonder Woman", "Iron Man", "Thor", "Hulk", "Flash", "Aquaman", "Capitán América", "Black Widow", "Doctor Strange", "Linterna Verde"],
-        "Profesiones": ["Médico", "Bombero", "Policía", "Maestro", "Ingeniero", "Abogado", "Cocinero", "Astronauta", "Arquitecto", "Periodista", "Mecánico", "Piloto", "Bailarín", "Diseñador"]
+        "Deportes": [
+            { word: "Fútbol", hints: ["Pelota", "Gol", "Messi"] },
+            { word: "Tenis", hints: ["Raqueta", "Wimbledon", "Deuce"] },
+            { word: "Natación", hints: ["Piscina", "Estilos", "Delfín"] },
+            { word: "Baloncesto", hints: ["Cesta", "Driblar", "NBA"] },
+            { word: "Voleibol", hints: ["Red", "Saque", "Bloqueo"] },
+            { word: "Rugby", hints: ["Ovalada", "Mêlée", "Haka"] },
+            { word: "Golf", hints: ["Putter", "Hoyos", "Caddy"] },
+            { word: "Boxeo", hints: ["Guantes", "Ring", "Knockout"] },
+            { word: "Surf", hints: ["Ola", "Tabla", "Tubo"] },
+            { word: "Atletismo", hints: ["Pista", "Carrera", "Decatlón"] },
+            { word: "Ciclismo", hints: ["Bicicleta", "Tour", "Montaña"] },
+            { word: "Hockey", hints: ["Disco", "Stick", "Hielo"] },
+            { word: "Esgrima", hints: ["Espada", "Florete", "Tocados"] },
+            { word: "Gimnasia", hints: ["Aro", "Cinta", "Asimétricas"] },
+            { word: "Polo Acuático", hints: ["Piscina", "Gorro", "Boyas"] },
+            { word: "Béisbol", hints: ["Bate", "Home Run", "Pitcher"] },
+            { word: "Judo", hints: ["Tatami", "Cinturón", "Ippon"] }
+        ],
+        "Cocina": [
+            { word: "Tenedor", hints: ["Pinchar", "Cubierto", "Tres puntas"] },
+            { word: "Sartén", hints: ["Caliente", "Aceite", "Tortilla"] },
+            { word: "Licuadora", hints: ["Fruta", "Batido", "Giro"] },
+            { word: "Microondas", hints: ["Tiempo", "Calentar", "Radiación"] },
+            { word: "Cuchillo", hints: ["Cortar", "Filo", "Chef"] },
+            { word: "Olla", hints: ["Sopa", "Vapor", "Presión"] },
+            { word: "Cafetera", hints: ["Grano", "Desayuno", "Aroma"] },
+            { word: "Tostadora", hints: ["Pan", "Eléctrico", "Salida"] },
+            { word: "Rallador", hints: ["Queso", "Zanahoria", "Frotar"] },
+            { word: "Batidora", hints: ["Mezclar", "Repostería", "Globo"] },
+            { word: "Tabla de cortar", hints: ["Madera", "Picar", "Higiene"] },
+            { word: "Cuchara", hints: ["Sopa", "Postre", "Grande"] },
+            { word: "Colador", hints: ["Pasta", "Líquido", "Red"] },
+            { word: "Servilleta", hints: ["Boca", "Tela", "Desechable"] },
+            { word: "Vasos", hints: ["Beber", "Cristal", "Llenar"] }
+        ],
+        "Películas": [
+            { word: "Titanic", hints: ["Hielo", "Barco", "DiCaprio"] },
+            { word: "El Padrino", hints: ["Mafia", "Italia", "Corleone"] },
+            { word: "Harry Potter", hints: ["Magia", "Varita", "Hogwarts"] },
+            { word: "Star Wars", hints: ["Espada", "Fuerza", "Galaxia"] },
+            { word: "Avatar", hints: ["Azul", "3D", "Pandora"] },
+            { word: "Jurassic Park", hints: ["Dinosaurios", "Isla", "Mosquito"] },
+            { word: "El Rey León", hints: ["Sabana", "Círculo", "Mufasa"] },
+            { word: "Matrix", hints: ["Píldora", "Elegido", "Neo"] },
+            { word: "Avengers", hints: ["Héroes", "Gemas", "Marvel"] },
+            { word: "Terminator", hints: ["Cyborg", "Futuro", "Skynet"] },
+            { word: "Piratas del Caribe", hints: ["Barco", "Ron", "Jack Sparrow"] },
+            { word: "Pulp Fiction", hints: ["Tarantino", "Maletín", "Baile"] },
+            { word: "Forrest Gump", hints: ["Correr", "Pluma", "Chocolate"] },
+            { word: "Parásitos", hints: ["Clase", "Coreana", "Bunker"] },
+            { word: "Gladiador", hints: ["Roma", "Coliseo", "Venganza"] }
+        ],
+        "Series": [
+            { word: "Breaking Bad", hints: ["Química", "Profesor", "Azul"] },
+            { word: "Game of Thrones", hints: ["Dragones", "Invierno", "Trono"] },
+            { word: "Friends", hints: ["Café", "Nueva York", "Seis"] },
+            { word: "Stranger Things", hints: ["80s", "Monstruo", "Once"] },
+            { word: "Los Simpson", hints: ["Amarillo", "Springfield", "Cerveza"] },
+            { word: "La Casa de Papel", hints: ["Máscara", "Atraco", "Profesor"] },
+            { word: "The Office", hints: ["Jefe", "Documental", "Papelera"] },
+            { word: "Vikingos", hints: ["Nórdicos", "Barco", "Ragnar"] },
+            { word: "Peaky Blinders", hints: ["Sombrero", "Inglaterra", "Gángster"] },
+            { word: "Euphoria", hints: ["Adolescencia", "Brillos", "Zendaya"] },
+            { word: "Seinfeld", hints: ["Nada", "Stand-up", "Jerry"] },
+            { word: "Merlina", hints: ["Negro", "Academia", "Mano"] },
+            { word: "Squid Game", hints: ["Juegos", "Número", "Corea"] }
+        ],
+        "Materias": [
+            { word: "Matemáticas", hints: ["Números", "Cálculo", "Ecuación"] },
+            { word: "Historia", hints: ["Pasado", "Fechas", "Guerras"] },
+            { word: "Geografía", hints: ["Mapa", "Ríos", "Capitales"] },
+            { word: "Biología", hints: ["Vida", "Célula", "ADN"] },
+            { word: "Química", hints: ["Tabla", "Elemento", "Molécula"] },
+            { word: "Física", hints: ["Movimiento", "Fuerza", "Gravedad"] },
+            { word: "Arte", hints: ["Pincel", "Color", "Creatividad"] },
+            { word: "Literatura", hints: ["Libro", "Novela", "Verso"] },
+            { word: "Inglés", hints: ["Idioma", "Global", "Shakespeare"] },
+            { word: "Filosofía", hints: ["Pensar", "Sabiduría", "Sócrates"] },
+            { word: "Economía", hints: ["Dinero", "Mercado", "Oferta"] },
+            { word: "Informática", hints: ["Computadora", "Código", "Algoritmo"] },
+            { word: "Educación Cívica", hints: ["Leyes", "Derechos", "Voto"] },
+            { word: "Deportes", hints: ["Ejercicio", "Reglas", "Equipo"] }
+        ],
+        "Animales": [
+            { word: "León", hints: ["Rey", "Melena", "Sabana"] },
+            { word: "Elefante", hints: ["Trompa", "Gris", "Memoria"] },
+            { word: "Perro", hints: ["Mascota", "Ladra", "Fiel"] },
+            { word: "Gato", hints: ["Bigotes", "Maullar", "Independiente"] },
+            { word: "Águila", hints: ["Volar", "Rapaz", "Nido"] },
+            { word: "Tiburón", hints: ["Océano", "Aleta", "Blanco"] },
+            { word: "Serpiente", hints: ["Rastrea", "Venenosa", "Siseo"] },
+            { word: "Pingüino", hints: ["Frío", "Antártida", "Traje"] },
+            { word: "Jirafa", hints: ["Cuello", "Alto", "Manchas"] },
+            { word: "Oso", hints: ["Hiberna", "Miel", "Pardo"] },
+            { word: "Delfín", hints: ["Inteligente", "Sonar", "Mamífero"] },
+            { word: "Caballo", hints: ["Crines", "Montar", "Herradura"] },
+            { word: "Cebra", hints: ["Rayas", "África", "Equino"] },
+            { word: "Rinoceronte", hints: ["Cuerno", "Grueso", "Pachidermo"] },
+            { word: "Pez Payaso", hints: ["Nemo", "Anémona", "Rayas"] },
+            { word: "Murciélago", hints: ["Noche", "Cueva", "Vuela"] }
+        ],
+        "Frutas": [
+            { word: "Manzana", hints: ["Rojo", "Muerde", "Newton"] },
+            { word: "Banana", hints: ["Amarillo", "Mono", "Curva"] },
+            { word: "Frutilla", hints: ["Roja", "Semillas", "Postre"] },
+            { word: "Uva", hints: ["Racimo", "Vino", "Pasa"] },
+            { word: "Sandía", hints: ["Verde", "Verano", "Agua"] },
+            { word: "Naranja", hints: ["Jugo", "Vitamina C", "Ácido"] },
+            { word: "Piña", hints: ["Tropical", "Corona", "Rugosa"] },
+            { word: "Limón", hints: ["Agrura", "Rodaja", "Cítrico"] },
+            { word: "Cereza", hints: ["Pequeña", "Rojo", "Par"] },
+            { word: "Pera", hints: ["Forma", "Jugo", "Verde"] },
+            { word: "Mango", hints: ["Tropical", "Dulce", "Carozo"] },
+            { word: "Kiwi", hints: ["Pelos", "Verde", "Zespri"] },
+            { word: "Durazno", hints: ["Pelusa", "Verano", "Rosado"] },
+            { word: "Palta", hints: ["Verde", "Grasa", "Guacamole"] },
+            { word: "Melón", hints: ["Esfera", "Dulce", "Amarillo"] }
+        ],
+        "Países": [
+            { word: "España", hints: ["Paella", "Toro", "Flamenco"] },
+            { word: "Argentina", hints: ["Asado", "Mate", "Tango"] },
+            { word: "México", hints: ["Taco", "Tequila", "Aztecas"] },
+            { word: "Japón", hints: ["Sushi", "Anime", "Tokio"] },
+            { word: "Francia", hints: ["Torre", "Vino", "París"] },
+            { word: "Italia", hints: ["Pizza", "Bota", "Coliseo"] },
+            { word: "Brasil", hints: ["Samba", "Río", "Selva"] },
+            { word: "EEUU", hints: ["Estrellas", "Dólar", "Estatua"] },
+            { word: "Alemania", hints: ["Cerveza", "Muro", "Motor"] },
+            { word: "Canadá", hints: ["Arce", "Frío", "Nieve"] },
+            { word: "China", hints: ["Muralla", "Panda", "Arroz"] },
+            { word: "India", hints: ["Curry", "Taj Mahal", "Bollywood"] },
+            { word: "Egipto", hints: ["Pirámides", "Nilo", "Faraón"] },
+            { word: "Rusia", hints: ["Frío", "Kremlin", "Vodka"] },
+            { word: "Australia", hints: ["Canguro", "Sídney", "Koala"] }
+        ],
+        "Superhéroes": [
+            { word: "Batman", hints: ["Murciélago", "Gótica", "Mayordomo"] },
+            { word: "Superman", hints: ["Kriptonita", "Capa", "Clark"] },
+            { word: "Spiderman", hints: ["Telaraña", "Vecindario", "Peter"] },
+            { word: "Wonder Woman", hints: ["Amazona", "Lazo", "Diana"] },
+            { word: "Iron Man", hints: ["Genio", "Armadura", "Tony"] },
+            { word: "Thor", hints: ["Martillo", "Asgard", "Trueno"] },
+            { word: "Hulk", hints: ["Verde", "Rabia", "Banner"] },
+            { word: "Flash", hints: ["Rápido", "Rayo", "Velocidad"] },
+            { word: "Aquaman", hints: ["Mar", "Tridente", "Atlántida"] },
+            { word: "Capitán América", hints: ["Escudo", "Suero", "Steve"] },
+            { word: "Black Widow", hints: ["Espía", "Rusia", "Natasha"] },
+            { word: "Doctor Strange", hints: ["Portal", "Tiempo", "Capa"] },
+            { word: "Linterna Verde", hints: ["Anillo", "Voluntad", "Sector"] }
+        ],
+        "Profesiones": [
+            { word: "Médico", hints: ["Hospital", "Estetoscopio", "Salud"] },
+            { word: "Bombero", hints: ["Fuego", "Manguera", "Rescate"] },
+            { word: "Policía", hints: ["Ley", "Placa", "Patrulla"] },
+            { word: "Maestro", hints: ["Clase", "Pizarra", "Estudiantes"] },
+            { word: "Ingeniero", hints: ["Diseño", "Construcción", "Cálculo"] },
+            { word: "Abogado", hints: ["Corte", "Ley", "Defender"] },
+            { word: "Cocinero", hints: ["Restaurante", "Recetas", "Sabor"] },
+            { word: "Astronauta", hints: ["Espacio", "Cohete", "Gravedad"] },
+            { word: "Arquitecto", hints: ["Planos", "Edificio", "Diseño"] },
+            { word: "Periodista", hints: ["Noticias", "Entrevista", "Reportaje"] },
+            { word: "Mecánico", hints: ["Motor", "Taller", "Aceite"] },
+            { word: "Piloto", hints: ["Avión", "Cielo", "Cabina"] },
+            { word: "Bailarín", hints: ["Música", "Escenario", "Coreografía"] },
+            { word: "Diseñador", hints: ["Creativo", "Gráfico", "Moda"] }
+        ]
     };
 
     let players = [];
@@ -302,17 +471,21 @@
     let assignedRoles = []; 
     let isRevealed = false;
     let deadPlayers = [];
+    let selectedWordData = null; // Almacena {word: "X", hints: ["A", "B", "C"]}
 
     // --- INICIALIZACIÓN ---
     window.onload = () => {
         initCategorySelect();
         initCategoryTags();
-        handleSetupChange(); // Establece el estado inicial de los campos condicionales
+        handleSetupChange(); 
     };
 
     function initCategorySelect() {
         const select = document.getElementById('category-select');
         select.innerHTML = ''; 
+        
+        // Función para contar palabras en la nueva estructura
+        const countWords = (cat) => database[cat] ? database[cat].length : 0;
 
         let optRand = document.createElement('option');
         optRand.value = "random_all";
@@ -334,7 +507,7 @@
         for (let cat in database) {
             let opt = document.createElement('option');
             opt.value = cat;
-            opt.innerText = `${cat} (${database[cat].length})`;
+            opt.innerText = `${cat} (${countWords(cat)})`;
             select.appendChild(opt);
         }
     }
@@ -354,7 +527,7 @@
         }
     }
     
-    // Maneja la visibilidad de todos los campos condicionales
+    // Maneja la visibilidad de los campos condicionales
     function handleSetupChange() {
         // Lógica de Categoría
         const catVal = document.getElementById('category-select').value;
@@ -416,7 +589,6 @@
         if (impostorSelect === 'random') {
             const min = 1;
             const max = players.length - 1; 
-            // Generar número aleatorio inclusivo [min, max]
             impostorCount = Math.floor(Math.random() * (max - min + 1)) + min;
             
         } else if (impostorSelect === 'custom') {
@@ -429,20 +601,22 @@
 
         if (impostorCount >= players.length) return alert(`Demasiados impostores (${impostorCount}). Debe haber al menos un civil. Máximo permitido: ${players.length - 1}.`);
         
-        // 2. SELECCIÓN DE PALABRA
+        // 2. SELECCIÓN DE PALABRA Y CATEGORÍA
         const catSelect = document.getElementById('category-select').value;
-        let words = [];
+        let sourceCategoryWords = []; // Lista de objetos {word, hints}
 
         if (catSelect === 'custom') {
             const raw = document.getElementById('custom-words-input').value;
-            words = raw.split(',').map(w => w.trim()).filter(w => w.length > 0);
-            if (words.length < 2) return alert("Escribe al menos 2 palabras.");
+            const rawWords = raw.split(',').map(w => w.trim()).filter(w => w.length > 0);
+            if (rawWords.length < 2) return alert("Escribe al menos 2 palabras.");
             currentCategory = "Personalizado";
+            // Para la opción personalizada, se crea una estructura simple
+            sourceCategoryWords = rawWords.map(w => ({ word: w, hints: [] })); 
         } 
         else if (catSelect === 'random_all') {
             const keys = Object.keys(database);
             const randKey = keys[Math.floor(Math.random() * keys.length)];
-            words = database[randKey];
+            sourceCategoryWords = database[randKey];
             currentCategory = randKey;
         } 
         else if (catSelect === 'random_mix') {
@@ -451,18 +625,33 @@
             
             const selectedCats = Array.from(tags).map(t => t.dataset.cat);
             const randKey = selectedCats[Math.floor(Math.random() * selectedCats.length)];
-            words = database[randKey];
+            sourceCategoryWords = database[randKey];
             currentCategory = randKey;
         } 
         else {
-            words = database[catSelect];
+            sourceCategoryWords = database[catSelect];
             currentCategory = catSelect;
         }
 
-        currentWord = words[Math.floor(Math.random() * words.length)];
+        if (sourceCategoryWords.length === 0) return alert("La categoría seleccionada no tiene palabras.");
+
+        // Seleccionar una palabra/pista aleatoria
+        selectedWordData = sourceCategoryWords[Math.floor(Math.random() * sourceCategoryWords.length)];
+        currentWord = selectedWordData.word;
         deadPlayers = [];
 
-        // 3. ASIGNAR ROLES
+        // 3. CÁLCULO DE PISTA PARA EL IMPOSTOR
+        const hintMode = document.getElementById('hint-mode-select').value;
+        let impostorDisplayWord = `Pista: Algo de ${currentCategory}`;
+        
+        if (hintMode === 'enabled' && selectedWordData.hints && selectedWordData.hints.length > 0) {
+            // Elegir una de las 3 pistas al azar
+            const randHintIndex = Math.floor(Math.random() * selectedWordData.hints.length);
+            impostorDisplayWord = `Pista: ${selectedWordData.hints[randHintIndex]}`;
+        }
+        // Nota: Si es "Personalizado" y tiene pistas, solo muestra la categoría (como indica el texto)
+
+        // 4. ASIGNAR ROLES
         let roles = Array(players.length).fill('civilian');
         let indices = players.map((_, i) => i);
         
@@ -477,11 +666,12 @@
             return {
                 name: name,
                 role: roles[i],
-                displayWord: roles[i] === 'civilian' ? currentWord : `Pista: Algo de ${currentCategory}`
+                // El impostor recibe la pista calculada, el civil la palabra real
+                displayWord: roles[i] === 'civilian' ? currentWord : impostorDisplayWord
             };
         });
 
-        // 4. INICIO
+        // 5. INICIO
         currentPlayerIndex = 0;
         switchScreen('screen-reveal');
         updateRevealScreen();
@@ -506,8 +696,10 @@
 
         const secretDiv = document.getElementById('secret-text');
         if (player.role === 'impostor') {
+            // El impostor siempre ve "¡ERES EL IMPOSTOR!", y la pista abajo.
             secretDiv.innerHTML = `<span class="impostor-text">¡ERES EL IMPOSTOR!</span><br><span style="font-size:0.8rem; color:#aaa; font-weight:normal">${player.displayWord}</span>`;
         } else {
+            // El civil solo ve la palabra real.
             secretDiv.innerHTML = `<span>${player.displayWord}</span>`;
         }
     }
