@@ -1,195 +1,71 @@
-<html lang="es">
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
     <title>Juegos Web</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
     <style>
-        /* --- ESTILO GENERAL --- */
         body {
-            margin: 0;
-            padding: 0;
-            background: #0f0f0f;
-            color: #e0e0e0;
-            font-family: "Inter", Arial, sans-serif;
-        }
-
-        header {
-            text-align: center;
-            padding: 30px 0;
-            font-size: 28px;
-            letter-spacing: 1px;
-            font-weight: 600;
-            border-bottom: 1px solid #222;
-            background: #111;
-        }
-
-        /* --- GRID DE TARJETAS --- */
-        .grid-container {
-            display: grid;
-            padding: 40px 20px;
-            max-width: 1100px;
-            margin: auto;
-            gap: 25px;
-            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-        }
-
-        /* --- TARJETAS --- */
-        .card {
-            background: #161616;
-            padding: 25px;
-            border-radius: 12px;
-            text-decoration: none;
-            color: #e0e0e0;
-            border: 1px solid #1e1e1e;
-            transition: 0.25s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .card:hover {
-            border-color: #444;
-            background: #1b1b1b;
-            transform: translateY(-4px);
-        }
-
-        .card i {
-            font-size: 32px;
-            margin-bottom: 12px;
-            opacity: 0.85;
-        }
-
-        .card h2 {
-            font-size: 17px;
-            margin: 0;
-            letter-spacing: 0.5px;
-            text-align: center;
-        }
-
-        /* --- FOOTER --- */
-        footer {
+            background-color: #0f0f0f;
+            color: white;
+            font-family: sans-serif;
             text-align: center;
             padding: 20px;
-            margin-top: 30px;
-            font-size: 13px;
-            color: #555;
-            border-top: 1px solid #222;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        a {
+            display: block;
+            width: 150px;
+            padding: 15px;
+            background: #1a1a1a;
+            color: white;
+            text-decoration: none;
+            border: 1px solid #333;
+        }
+        a:hover {
+            background: #333;
         }
     </style>
 </head>
-
 <body>
 
-<header>🎮 Juegos Web</header>
+    <h1>Lista de Juegos</h1>
+    <hr>
 
-<main class="grid-container">
+    <div class="container">
+        <a href="https://chromedino.com">Dino Chrome</a>
+        <a href="https://supermarioemulator.com">Super Mario Bros</a>
+        <a href="https://www.google.com/search?q=pacman">Pac-Man</a>
+        <a href="https://tetris.com/play-tetris">Tetris</a>
+        <a href="https://krunker.io">Krunker.io</a>
+        <a href="https://drift-hunters.com">Drift Hunters</a>
+        <a href="https://swordbattle.io">Swordbattle.io</a>
+        <a href="https://slither.io">Slither.io</a>
+        <a href="https://shellshock.io">ShellShockers.io</a>
+        <a href="https://ninjakiwi.com">Bloons TD 6</a>
+        <a href="https://worldshardestgame.com">World's Hardest Game</a>
+        <a href="https://play2048.co">2048</a>
+        <a href="https://oskarstalberg.com/Townscaper/">Townscaper</a>
+        <a href="https://www.haxball.com/">HaxBall</a>
+        <a href="https://agar.io/">Agar.io</a>
+        <a href="https://8ballpool.com/">8 Ball Pool</a>
+        <a href="https://findtheinvisiblecow.com/">Invisible Cow</a>
+        <a href="http://weavesilk.com/">Weavesilk</a>
+        <a href="https://optical.toys/">Optical Toys</a>
+        <a href="https://theuselessweb.com/">The Useless Web</a>
+        <a href="https://memory.toys/">Memory Toys</a>
+        <a href="https://maze.toys/mazes/mini/daily/">Laberinto</a>
+        <a href="https://quickdraw.withgoogle.com/">Quick Draw</a>
+        <a href="https://lapalabradeldia.com/">Palabra del Día</a>
+        <a href="https://impostor-argento.vercel.app/">Impostor</a>
+    </div>
 
-    <a href="https://chromedino.com" target="_blank" class="card">
-        <i class="fas fa-gamepad"></i><h2>Dino Chrome</h2>
-    </a>
-
-    <a href="https://supermarioemulator.com" target="_blank" class="card">
-        <i class="fas fa-gamepad"></i><h2>Super Mario Bros</h2>
-    </a>
-
-    <a href="https://www.google.com/search?q=pacman" target="_blank" class="card">
-        <i class="fas fa-gamepad"></i><h2>Pac-Man</h2>
-    </a>
-
-    <a href="https://tetris.com/play-tetris" target="_blank" class="card">
-        <i class="fas fa-gamepad"></i><h2>Tetris</h2>
-    </a>
-
-    <a href="https://krunker.io" target="_blank" class="card">
-        <i class="fas fa-gamepad"></i><h2>Krunker.io</h2>
-    </a>
-
-    <a href="https://drift-hunters.com" target="_blank" class="card">
-        <i class="fas fa-car"></i><h2>Drift Hunters</h2>
-    </a>
-
-    <a href="https://swordbattle.io" target="_blank" class="card">
-        <i class="fas fa-gamepad"></i><h2>Swordbattle.io</h2>
-    </a>
-
-    <a href="https://slither.io" target="_blank" class="card">
-        <i class="fas fa-gamepad"></i><h2>Slither.io</h2>
-    </a>
-
-    <a href="https://shellshock.io" target="_blank" class="card">
-        <i class="fas fa-gamepad"></i><h2>ShellShockers.io</h2>
-    </a>
-
-    <a href="https://ninjakiwi.com" target="_blank" class="card">
-        <i class="fas fa-gamepad"></i><h2>Bloons TD 6</h2>
-    </a>
-
-    <a href="https://worldshardestgame.com" target="_blank" class="card">
-        <i class="fas fa-gamepad"></i><h2>World’s Hardest Game</h2>
-    </a>
-
-    <a href="https://play2048.co" target="_blank" class="card">
-        <i class="fas fa-gamepad"></i><h2>2048</h2>
-    </a>
-
-    <a href="https://oskarstalberg.com/Townscaper/" target="_blank" class="card">
-        <i class="fas fa-city"></i><h2>Townscaper</h2>
-    </a>
-
-    <a href="https://www.haxball.com/" target="_blank" class="card">
-        <i class="fas fa-futbol"></i><h2>HaxBall</h2>
-    </a>
-
-    <a href="https://agar.io/" target="_blank" class="card">
-        <i class="fas fa-gamepad"></i><h2>Agar.io</h2>
-    </a>
-
-    <a href="https://8ballpool.com/" target="_blank" class="card">
-        <i class="fas fa-circle"></i><h2>8 Ball Pool</h2>
-    </a>
-
-    <a href="https://findtheinvisiblecow.com/" target="_blank" class="card">
-        <i class="fas fa-gamepad"></i><h2>Find The Invisible Cow</h2>
-    </a>
-
-    <a href="http://weavesilk.com/" target="_blank" class="card">
-        <i class="fas fa-gamepad"></i><h2>Weavesilk</h2>
-    </a>
-
-    <a href="https://optical.toys/" target="_blank" class="card">
-        <i class="fas fa-gamepad"></i><h2>Optical Toys</h2>
-    </a>
-
-    <a href="https://theuselessweb.com/" target="_blank" class="card">
-        <i class="fas fa-gamepad"></i><h2>The Useless Web</h2>
-    </a>
-
-    <a href="https://memory.toys/" target="_blank" class="card">
-        <i class="fas fa-gamepad"></i><h2>Memory Toys</h2>
-    </a>
-
-    <a href="https://maze.toys/mazes/mini/daily/" target="_blank" class="card">
-        <i class="fas fa-gamepad"></i><h2>Laberinto Diario</h2>
-    </a>
-
-    <a href="https://quickdraw.withgoogle.com/" target="_blank" class="card">
-        <i class="fas fa-gamepad"></i><h2>Quick Draw</h2>
-    </a>
-
-    <a href="https://lapalabradeldia.com/" target="_blank" class="card">
-        <i class="fas fa-gamepad"></i><h2>La Palabra Del Dia</h2>
-    </a>
-
-    <a href="https://impostor-argento.vercel.app/" target="_blank" class="card">
-        <i class="fas fa-gamepad"></i><h2>Impostor Web Vercel</h2>
-    </a>
-</main>
-
-<footer>
-    © ChatGPT
-</footer>
+    <p style="margin-top: 50px; color: gray;">© ChatGPT</p>
 
 </body>
 </html>
