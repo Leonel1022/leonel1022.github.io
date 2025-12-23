@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="robots" content="noindex">
@@ -16,19 +16,75 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        a {
-            display: block;
-            width: 150px;
-            padding: 15px;
+        /* Estilo de la caja expandible */
+        details {
             background: #1a1a1a;
+            border: 1px solid #333;
+            width: 180px;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        details:hover {
+            border-color: #555;
+            transform: translateY(-2px);
+        }
+        /* Estilo especial para los juegos TOP */
+        .top-item {
+            border: 1px solid #ffd700; /* Borde dorado */
+        }
+        /* El título del juego */
+        summary {
+            padding: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            list-style: none;
+            outline: none;
+            user-select: none;
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        /* Contenido de la descripción */
+        .desc-content {
+            padding: 12px;
+            font-size: 0.85em;
+            color: #bbb;
+            border-top: 1px solid #333;
+            background: #141414;
+            text-align: left;
+        }
+        /* Botón de jugar */
+        .play-btn {
+            display: block;
+            margin-top: 10px;
+            padding: 8px;
+            background: #007bff;
             color: white;
             text-decoration: none;
-            border: 1px solid #333;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: bold;
         }
-        a:hover {
+        .play-btn:hover {
+            background: #0056b3;
+        }
+        hr {
+            border: 0;
+            height: 1px;
             background: #333;
+            margin: 20px 0 40px 0;
+        }
+        h2 {
+            color: #ffd700;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
     </style>
 </head>
@@ -37,36 +93,217 @@
     <h1>Lista de Juegos</h1>
     <hr>
 
+    <h2>⭐ Top ⭐</h2>
     <div class="container">
-        <a href="https://chromedino.com">Dino Chrome</a>
-        <a href="https://supermarioemulator.com">Super Mario Bros</a>
-        <a href="https://www.google.com/search?q=pacman">Pac-Man</a>
-        <a href="https://tetris.com/play-tetris">Tetris</a>
-        <a href="https://krunker.io">Krunker.io</a>
-        <a href="https://drift-hunters.com">Drift Hunters</a>
-        <a href="https://swordbattle.io">Swordbattle.io</a>
-        <a href="https://slither.io">Slither.io</a>
-        <a href="https://shellshock.io">ShellShockers.io</a>
-        <a href="https://ninjakiwi.com">Bloons TD 6</a>
-        <a href="https://worldshardestgame.com">World's Hardest Game</a>
-        <a href="https://play2048.co">2048</a>
-        <a href="https://oskarstalberg.com/Townscaper/">Townscaper</a>
-        <a href="https://www.haxball.com/">HaxBall</a>
-        <a href="https://agar.io/">Agar.io</a>
-        <a href="https://8ballpool.com/">8 Ball Pool</a>
-        <a href="https://findtheinvisiblecow.com/">Invisible Cow</a>
-        <a href="http://weavesilk.com/">Weavesilk</a>
-        <a href="https://optical.toys/">Optical Toys</a>
-        <a href="https://theuselessweb.com/">The Useless Web</a>
-        <a href="https://memory.toys/">Memory Toys</a>
-        <a href="https://maze.toys/mazes/mini/daily/">Laberinto</a>
-        <a href="https://quickdraw.withgoogle.com/">Quick Draw</a>
-        <a href="https://lapalabradeldia.com/">Palabra del Día</a>
-        <a href="https://impostor-argento.vercel.app/">Impostor</a>
+        <details class="top-item">
+        <summary>Impostor</summary>
+            <div class="desc-content">El juego ludico impostor,no among us,MultiJugador,face to face
+            <a href="https://impostor-argento.vercel.app/" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+
+        <details class="top-item">
+            <summary>Palabra del Día</summary>
+            <div class="desc-content">Adivina la palabra oculta,1 jugador
+            <a href="https://lapalabradeldia.com/" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+            
+        <details class="top-item">
+            <summary>Quick Draw</summary>
+            <div class="desc-content">Dibuja algo y una Inteligencia Artificial intentará adivinar (google) qué es,1 jugador
+            <a href="https://quickdraw.withgoogle.com/" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+        
+        <details class="top-item">
+            <summary>Agar.io</summary>
+            <div class="desc-content">El juego original de células. Come a los pequeños, huye de los grandes,multijugador
+            <a href="https://agar.io/" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+
+        <details class="top-item">
+            <summary>HaxBall</summary>
+            <div class="desc-content">Fútbol en 2D basado en física. Simple pero muy competitivo, multijugador.
+            <a href="https://www.haxball.com/" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+        
+        <details class="top-item">
+            <summary>Gartic Phone</summary>
+            <div class="desc-content">Dibujos y tiene distintos modos,animacion,gif,replica, multijugador.
+            <a href="https://garticphone.com/" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+
+        <details class="top-item">
+            <summary>Make it meme</summary>
+            <div class="desc-content">Crea un meme con imagenes predeterminadas, multijugador.
+            <a href="https://makeitmeme.com/" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+        
+        <details class="top-item">
+            <summary>Plato</summary>
+            <div class="desc-content">"Un jueguito que tiene juegguitos" - Gus, multijugador.
+            <a href="https://platoapp.com/" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+        
+        <details class="top-item">
+            <summary>JKLM</summary>
+            <div class="desc-content">Juego de palabras o cultura,escribe la palabra antes de q el tiempo termine, multijugador.
+            <a href="https://jklm.fun/" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+        
+        <details class="top-item">
+            <summary>Sketchful</summary>
+            <div class="desc-content">Juego de dibujo y adivinanzas, multijugador.
+            <a href="https://sketchful.io/" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+
+        
+        <details class="top-item">
+            <summary>Word Bomb</summary>
+            <div class="desc-content"Es como el JKLM, multijugador.
+            <a href="hhttps://wordbomb.io/" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+        
+        <details class="top-item">
+            <summary>Pokemon Showdown</summary>
+            <div class="desc-content">Es un pokemon pero mundial con todas las generaciones, multijugador.
+            <a href="https://pokemonshowdown.com/" class="play-btn" target="_blank">Jugar</a></div>
+            <!--- o https://play.pokemonshowdown.com/ -->
+        </details>
+        
+    </div>
+    
+    <hr> <div class="container">
+
+
+        <details>
+            <summary>ShellShockers</summary>
+            <div class="desc-content">Sé un huevo y mata a tiros a todos jeje, multijugador (es pesado).
+            <a href="https://shellshock.io" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+        <details>
+            <summary>Super Mario Bros</summary>
+            <div class="desc-content">El clásico de clásicos, 1 jugador.
+            <a href="https://supermarioemulator.com/supermario.php" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+        
+        <details>
+            <summary>Dino Chrome</summary>
+            <div class="desc-content">El dinosaurio generico de google,1 jugador
+            <a href="https://chromedino.com" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+
+        <details>
+            <summary>Pac-Man</summary>
+            <div class="desc-content">El doodle oficial de Google para jugar al comecocos clásico, 1 jugador
+            <a href="https://www.google.com/search?q=pacman" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+
+        <details>
+            <summary>Tetris</summary>
+            <div class="desc-content">Tetris,1 jugador
+            <a href="https://tetris.com/play-tetris" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+
+        <details>
+            <summary>Krunker.io</summary>
+            <div class="desc-content">Frenético shooter en primera persona con estética de bloques,1 jugador (es pesado)
+            <a href="https://krunker.io" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+
+        <details>
+            <summary>Drift Hunters</summary>
+            <div class="desc-content">Simulador de conducción enfocado en hacer el mejor derrape,1 jugador (es pesado)
+            <a href="https://drift-hunters.com" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+
+        <details>
+            <summary>Swordbattle.io</summary>
+            <div class="desc-content">Combate con espadas. Recoge monedas para crecer,multijugador (es pesado)
+            <a href="https://swordbattle.io" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+
+        <details>
+            <summary>Slither.io</summary>
+            <div class="desc-content">Si no sabes q es viviste debajo de una piedra todo este momento,multijugador
+            <a href="https://slither.io" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+
+        <details>
+            <summary>Batalla de Dibujos</summary>
+            <div class="desc-content">Dibuja y adivina el dibujo del otro equipo,multijugador
+            <a href="https://sketchful.io/" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+
+        <details>
+            <summary>2048</summary>
+            <div class="desc-content">Suma baldosas con el mismo número hasta llegar al 2048,1 jugador
+            <a href="https://play2048.co" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+
+        <details>
+            <summary>Townscaper</summary>
+            <div class="desc-content">Construye hermosas ciudades flotantes,1 jugador (es pesado)
+            <a href="https://oskarstalberg.com/Townscaper/" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+
+
+        <details>
+            <summary>8 Ball Pool</summary>
+            <div class="desc-content">El juego de billar más popular de la web,multijugador
+            <a href="https://8ballpool.com/en/game" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+
+        <details>
+            <summary>Invisible Cow</summary>
+            <div class="desc-content">Encuentra a la vaca invisible guiándote solo por el sonido.1 jugador (medio pesado)
+            <a href="https://findtheinvisiblecow.com/" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+
+        <details>
+            <summary>Weavesilk</summary>
+            <div class="desc-content">Crea arte generativo simétrico con movimientos del ratón,1 jugador
+            <a href="http://weavesilk.com/" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+
+        <details>
+            <summary>Optical Toys</summary>
+            <div class="desc-content">Una colección de ilusiones ópticas y juguetes visuales,1 jugador
+            <a href="https://optical.toys/" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+
+        <details>
+            <summary>The Useless Web</summary>
+            <div class="desc-content">Te lleva a una página web completamente inútil al azar,1 jugador
+            <a href="https://theuselessweb.com/" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+
+        <details>
+            <summary>Memory Toys</summary>
+            <div class="desc-content">Pon a prueba tu memoria con diversos retos visuales,1 jugador
+            <a href="https://memory.toys/" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+
+        <details>
+            <summary>Laberinto</summary>
+            <div class="desc-content">Generador diario de laberintos para resolver, 1 jugador
+            <a href="https://maze.toys/mazes/mini/daily/" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+        
+        <details>
+         <summary>Juegos NES</summary>
+            <div class="desc-content">Todos los juegos de NES,1 jugador
+            <a href="https://supermarioemulator.com" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+
+        
+        <details>
+            <summary>DUO w Friends</summary>
+            <div class="desc-content">Es una version web del dos, multijugador. (es pesado)
+            <a href="https://duowfriends.eu/" class="play-btn" target="_blank">Jugar</a></div>
+        </details>
+
     </div>
 
-    <p style="margin-top: 50px; color: gray;">© ChatGPT</p>
+    <p style="margin-top: 50px; color: gray;">©ChatGPT</p>
 
 </body>
 </html>
-
