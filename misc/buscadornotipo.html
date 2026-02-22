@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="robots" content="noindex">
+    <meta name="author" content="Leonel1022">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias</title>
+    <style>
+        * {
+            font-family: serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #101418;
+            color: #eaecf0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h2 {
+            font-weight: normal;
+            border-bottom: 1px solid #3c3f42;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #1a1f24;
+            border: 1px solid #3c3f42;
+            color: #eaecf0;
+            font-size: 18px;
+            outline: none;
+        }
+
+        button {
+            background-color: #202122;
+            color: #eaecf0;
+            border: 1px solid #3c3f42;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button:active {
+            background-color: #2a2b2d;
+        }
+
+        
+        #terminal {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #000000;
+            border: 1px solid #3c3f42;
+            color: #a2a9b1; 
+            text-align: left;
+            min-height: 150px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        #status {
+            color: #6b88d3;
+            font-size: 13px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Buscador de Noticias</h2>
+    
+    <input type="text" id="busqueda" placeholder="Escriba aquí su investigación...">
+    <button onclick="ejecutarLoop()">Enviar información</button>
+
+    <div id="terminal">
+        <div id="status">Esperando peticion...</div>
+        <div id="output"></div>
+    </div>
+</div>
+
+<script>
+    async function ejecutarLoop() {
+        const inputVal = document.getElementById('busqueda').value;
+        const outputDiv = document.getElementById('output');
+        const statusDiv = document.getElementById('status');
+
+        if (!inputVal) return;
+
+        outputDiv.innerText = "";
+        statusDiv.innerText = ">> Procesando...";
+
+        try {
+            // API
+            const url = `https://magicloops.dev/api/loop/9c36fd4c-7a04-4967-932e-5628645770a8/run?input=${encodeURIComponent(inputVal)}`;
+
+            const response = await fetch(url);
+            const data = await response.text();
+
+            statusDiv.innerText = ">> Resultado del rastreo:";
+            outputDiv.innerText = data;
+
+        } catch (error) {
+            statusDiv.innerText = ">> Error en la terminal";
+            outputDiv.innerText = "Fallo en la conexión con la base de datos.";
+        }
+    }
+</script>
+
+</body>
+</html>
