@@ -1,4 +1,4 @@
-body {
+        body {
             margin: 0;
             font-family: 'Inter', sans-serif;
            background-color: #530057;
@@ -14,13 +14,13 @@ background-image: url("https://www.transparenttextures.com/patterns/45-degree-fa
             padding: 40px 20px;
         }
 
-        .profile-container {
+        .contenedor-perfil {    
             margin-bottom: 30px;
             opacity: 0;
             animation: fadeIn 0.8s ease-out forwards;
         }
 
-        .profile-img {
+        .imagen-perfil {
             width: 180px;
             height: 180px;
             border-radius: 50%;
@@ -29,7 +29,7 @@ background-image: url("https://www.transparenttextures.com/patterns/45-degree-fa
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .profile-img:hover {
+        .imagen-perfil:hover {
             transform: scale(1.05);
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
         }
@@ -39,7 +39,7 @@ background-image: url("https://www.transparenttextures.com/patterns/45-degree-fa
             margin: 10px 0;
         }
 
-        .button-list {
+        .lista-botones {
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -47,7 +47,7 @@ background-image: url("https://www.transparenttextures.com/patterns/45-degree-fa
             max-width: 400px;
         }
 
-        .link-button {
+        .boton-enlace {
             background: linear-gradient(135deg, #8a24e9 0%, #7C3AED 100%);
             border: 1px solid rgba(255, 255, 255, 0.25);
             color: #ffffff;
@@ -66,15 +66,15 @@ background-image: url("https://www.transparenttextures.com/patterns/45-degree-fa
 
         
 
-        .link-button:hover {
+        .boton-enlace:hover {
             filter: brightness(1.1);
             transform: translateY(-2px) translateX(2px);
             box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
         }
 
-        .button-text .role {
+        .texto-boton .cargo {
   font-size: 0.75rem; /* Tamaño más pequeño */
-  opacity: 0.8;       /* Opcional: le da un tono ligeramente más suave */
+  opacity: 0.8;      /* Opcional: le da un tono ligeramente más suave */
 }
 
         @keyframes fadeIn {
@@ -83,11 +83,11 @@ background-image: url("https://www.transparenttextures.com/patterns/45-degree-fa
         }
 
         @media (max-width: 500px) {
-            .profile-img {
+            .imagen-perfil {
                 width: 120px;
                 height: 120px;
             }
-            .link-button {
+            .boton-enlace {
                 font-size: 14px;
                 padding: 10px;
                 gap: 8px;
@@ -98,43 +98,46 @@ background-image: url("https://www.transparenttextures.com/patterns/45-degree-fa
         }
 
 /* Contenedor que oculta los elementos que salen de la pantalla */
-.marquee-wrapper {
+.contenedor-carrusel {
     width: 100%;
     overflow: hidden;
-    padding: 30px 0;
+    padding: 20px 0;
     box-sizing: border-box;
+    color: black;
+    cursor: grab; /* Indica que se puede agarrar/arrastrar */
+    touch-action: pan-y; /* Permite scroll vertical de la página en móviles sin bloquear el arrastre horizontal */
+}
+
+.contenedor-carrusel:active {
+    cursor: grabbing; /* Cambia el icono al hacer clic/tocar */
 }
 
 /* Tira de bloques en movimiento horizontal */
-.marquee-track {
+.pista-carrusel {
     display: flex;
     gap: 20px;
     width: max-content;
-    /* Aplicamos la animación de derecha a izquierda */
-    animation: scroll-right-to-left 25s linear infinite;
-}
-
-/* Pausa el desplazamiento si pasas el cursor */
-.marquee-track:hover {
-    animation-play-state: paused;
+    font-size: 20px; /* Ajustado para que el texto entre bien en las tarjetas */
+    text-align: left;
 }
 
 /* Estilo de los bloques cuadrados blancos */
-.card {
+.tarjeta {
     background-color: #ffffff;
     width: 250px;
     height: 250px;
     border-radius: 20px; /* Esquinas redondeadas */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     flex-shrink: 0; /* Mantiene el tamaño cuadrado constante */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    user-select: none; /* Evita que se seleccione el texto por accidente al arrastrar */
 }
 
-/* Animación continua de Derecha a Izquierda */
-@keyframes scroll-right-to-left {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+.propuestas {
+    font-family: 'courier', sans-serif;
 }
