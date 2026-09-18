@@ -105,7 +105,8 @@ background-image: url("https://www.transparenttextures.com/patterns/45-degree-fa
     box-sizing: border-box;
     color: black;
     cursor: grab; /* Indica que se puede agarrar/arrastrar */
-    touch-action: pan-y; /* Permite scroll vertical de la página en móviles sin bloquear el arrastre horizontal */
+    touch-action: pan-y;/* Permite scroll vertical de la página en móviles sin bloquear el arrastre horizontal */
+    background: transparent;
 }
 
 .contenedor-carrusel:active {
