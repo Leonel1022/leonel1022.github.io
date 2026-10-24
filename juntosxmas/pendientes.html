@@ -5,7 +5,6 @@
     <title>Pendientes</title>
     <meta name="robots" content="noindex">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -14,110 +13,75 @@
             text-align: center;
             padding: 20px;
         }
-        .imagen-perfil {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            border: 3px solid #10b981;
-        }
         .caja-notas {
             background: #ffffff;
             max-width: 500px;
             margin: 20px auto;
-            padding: 20px;
+            padding: 20px 30px;
             border-radius: 10px;
             text-align: left;
             border: 1px solid #ddd;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
-        .item-nota {
-            margin: 10px 0;
+        
+        ul.lista-pendientes {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        ul.lista-pendientes li {
+            margin: 12px 0;
             font-size: 16px;
-        }
-        input[type="checkbox"] {
+            display: flex;
+            align-items: center;
             cursor: not-allowed;
+        }
+        
+        ul.lista-pendientes input[type="checkbox"] {
             transform: scale(1.2);
-            margin-right: 10px;
+            margin-right: 12px;
+            cursor: not-allowed;
+            accent-color: #10b981;
+        }
+        
+        ul.lista-pendientes input[type="checkbox"]:checked ~ * {
+            text-decoration: line-through;
+            color: #888;
         }
     </style>
 </head>
 <body>
 
     <h1>Pendientes</h1>
-<!-- PARA MARCAR <input type="checkbox" checked disabled>
-
-PARA DESMARCAR <input type="checkbox" disabled>
---->
 
     <div class="caja-notas">
-        <p><b>Tareas :</b></p>
+        <p><b>Tareas:</b></p>
         
-
-<div class="item-nota">
-
-         <div class="item-nota">
-             <input type="checkbox" disabled> Perfumero para el aula de 3ro/5to
-         </div>
-
-        <div class="item-nota">
-
-            <input type="checkbox" disabled> Primera jornada de limpieza
-        </div>
-
-        <div class="item-nota">
-
-            <input type="checkbox" disabled> Primera jornada de talleres
-        </div>
-
-        <div class="item-nota">
-
-            <input type="checkbox" disabled> Peluches en los buzones, buzones siempre a la vista
-        </div>
-
-
-        <div class="item-nota">
-
-            <input type="checkbox" disabled> Competencia de mascotas por ig
-        </div>
-
-        <div class="item-nota">
-
-            <input type="checkbox" disabled> Emprendimiento para financiar el centro
-        </div>
-
-        <div class="item-nota">
-
-            <input type="checkbox" disabled> Pizarra de dibujos anonimos
-        </div>
-
-        <div class="item-nota">
-
-            <input type="checkbox" disabled> Soporte para bicicletas
-        </div>
-
-
-        <div class="item-nota">
-            <input type="checkbox" disabled> Organizar excursión al aire libre
-        </div>
-
-        <div class="item-nota">
-
-            <input type="checkbox" checked disabled> Primera reunion del centro
-        </div>
-
-        <div class="item-nota">
-
-            <input type="checkbox" checked disabled> Carteles
-        </div>
-
-
-        <div class="item-nota">
-            <input type="checkbox" checked disabled> Diseño y publicacion de pagina, instagram y tiktok
-        </div>
-
-        <div class="item-nota">
-            <input type="checkbox" checked disabled> Semana de tematicas 22/09/26 - 25/09/26
-        </div>
+        <!--añade o quita la palabra 'checked' dentro del coso -->
+        <ul class="lista-pendientes">
+            <li><input type="checkbox" disabled> EXCURSIONES POR CURSO, ir buscando lugares</li>
+            <li><input type="checkbox" disabled> PIZARRON PARA NOVEDADES DEL CENTRO</li>
+            <li><input type="checkbox" disabled> EMPRENDIMIENTO DE STIKERS, ir buscando y empezar a vender</li>
+            <li><input type="checkbox" disabled> DURLOCKS, habitacion en las escaleras, mandar petitorio</li>
+            <li><input type="checkbox" disabled> SOPORTE BICICLETAS, permiso,encuentas y listado</li>
+            <li><input type="checkbox" disabled> EVENTO HALLOWEN 2026, disfraces</li>
+            <li><input type="checkbox" disabled> Perfumero para el aula de 3ro/5to</li>
+            <li><input type="checkbox" disabled> Primera jornada de limpieza</li>
+            <li><input type="checkbox" disabled> Primera jornada de talleres</li>
+            <li><input type="checkbox" disabled> Competencia de mascotas por ig</li>
+            <li><input type="checkbox" disabled> Soporte para bicicletas</li>
+            <li><input type="checkbox" disabled> Organizar excursión al aire libre</li>
+            <li><input type="checkbox" checked disabled> Peluches en los buzones, buzones siempre a la vista</li>
+            <li><input type="checkbox" checked disabled> Emprendimiento para financiar el centro</li>
+            <li><input type="checkbox" checked disabled> Primera reunión del centro</li>
+            <li><input type="checkbox" checked disabled> Carteles</li>
+            <li><input type="checkbox" checked disabled> Diseño y publicación de página, instagram y tiktok</li>
+            <li><input type="checkbox" checked disabled> Semana de temáticas 22/09/26 - 25/09/26</li>
+        </ul>
     </div>
+
+</body>
+</html>
 
 </body>
 </html>
