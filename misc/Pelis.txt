@@ -180,7 +180,7 @@
 180.gremlins
 181.500 dias con summer
 182.la ultima casa
-183. clayfase
+183.clayfase
 184.invasores
 185.krampus
 186.1922
@@ -200,7 +200,44 @@
 200.tirador
 201.madraza
 202.parque lezzama
-
+203.el conjuro (1-2-3-4)
+204.la monja
+205.annabelle (todas)
+206.fragmentado
+207.it 2
+208.el coleccionista de huesos
+209.el aro
+210.las damas primero
+211.ni una palabra
+212.el resplandor
+213.el eternauta (serie)
+214.911: llamada infernal
+215.la noche del demonio (todas)
+216.asi en la tierra como en el infierno
+217.lo dejamos aca
+218.el hoyo
+219.misa de medianoche
+220.la mujer en la ventana
+221.dejar el mundo atras
+222.el secreto de sus ojos
+223.el dictador
+224.gran turismo:de jugador a corredor
+225.no se aceptan devoluciones
+226.golpe bajo el juego final
+227.una pelicula de minecraft
+228.shrek (todas)
+229.virgen a los 40
+230.celular
+231.kung fu panda (todas)
+232.corazon delator
+233.mision imposible (todas)
+234.la terminal
+235.quisiera ser grande
+236.el codigo da vinci
+237.el proyecto adam
+238.la momia (todas)
+239.no te metas con zohan
+240.
 
 
 
