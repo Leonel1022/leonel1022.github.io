@@ -1,249 +1,233 @@
 1. #vivo
 2. (des)encanto (serie)
-3. 1922 (pelicula)
-4. 4x4
-5. A Hard Day's Night (pelicula)
-6. al rescate de fondo de bikini
-7. alerta roja
-8. alien -1979- (pelicula)
-9. animal
-10. aterrados (pelicula)
-11. batman el caballero de la noche (pelicula)
-12. cabo de miedo (pelicula)
-13. cadaver
-14. campamento con mama (pelicula)
-15. campamento lakebuttom (serie)
-16. capitan america -td saga- (pelicula)
-17. casados con hijos
-18. casi familia (pelicula)
-19. chikuarotes
-20. chiquito pero peligroso
-21. ciegos, sordos y locos
-22. Ciegos, sordos y locos (pelicula)
-23. coraline
-24. corazon loco (pelicula)
-25. corre
-26. cuatro dias mas
-27. culto a chucky
-28. death note
-29. descuida, yo te cuido
-30. desnudo (pelicula)
-31. division palermo
-32. doctor sueño (pelicula)
-33. dr house
-34. einstein y la bomba
-35. el abuelo sinverguenza (pelicula)
-36. el bar
-37. el cadaver de la novia
-38. el cliente (pelicula)
-39. el dragon de la tetera (pelicula)
-40. el encargado
-41. el gato del sombrero magico (pelicula)
-42. el hijo (pelicula)
-43. el irlandes
-44. el juego del calamar (serie)
-45. el juego del calamar (serie)
-46. el lorax
-47. el muro negro (pelicula)
-48. el perfecto asesino
-49. el robo del siglo
-50. el suplente
-51. el telefono del señor harrigan (pelicula)
-52. el telefono negro (pelicula)
-53. el tesoro del amazonas (pelicula)
-54. el valet (pelicula)
-55. eli
-56. emoji la pelicula
-57. en donde estan las rubias
-58. en guerra con mi abuelo (pelicula)
-59. enside -adentro- (pelicula)
-60. envidiosa (serie)
-61. escuadron suicida
-62. forest gump
-63. fractura (pelicula)
-64. gato con botas el ultimo deseo (pelicula)
-65. ghostbusters; apocalipsis fantasma
-66. goyo
-67. granizo
-68. ha vuelto (pelicula)
-69. hacker
-70. happy gilmore 1-2 (pelicula)
-71. hinoptico (pelicula)
-72. hombre vs abeja
-73. hombres de negro 1-2-3 (pelicula)
-74. home
-75. hotel transilvania transformania (pelicula)
-76. igualita a mi (pelicula)
-77. inseparables
-78. interestelar (pelicula)
-79. iron man 1-2-3
-80. it (1980)
-81. it (2012)
-82. jackass 4.5
-83. jefe en pañales
-84. jigsaw; el juego continua
-85. jimmy burbuja (pelicula)
-86. johnny english 1-2-3
-87. jujutsu kaisen
-88. jumanji (pelicula)
-89. la autopsia de jane doe
-90. la casa de cera (pelicula)
-91. la casa de los abuelos (pelicula)
-92. la familia mitchell vs las maquinas
-93. la historia real de un falso asesino
-94. la ira de dios
-95. la maldicion de la llorona (pelicula)
-96. la nona
-97. la peor semana
-98. Las aventuras de Jim West
-99. las vacaciones de mr bean
-100. los declaro marido y larry (pelicula)
-101. los doble vida
-102. los hermanos crack (serie)
-103. los juegos del amor (pelicula)
-104. los renglones torcidos de dios
-105. lucifer
-106. maestro luchador
-107. mama se fue de viaje
-108. marginal
-109. mas alla de la muerte (pelicula)
-110. mas respeto que soy tu madre
-111. masterchef (serie)
-112. matilda
-113. matrimillas
-114. me case con un boludo
-115. mi abuelo es un peligro
-116. mi obra maestra
-117. mi villano favorito 1-2-3-4
-118. minions
-119. muerte en el funeral
-120. nada (serie)
-121. naufrago (pelicula)
-122. netflix la conferencia de tu hermana
-123. no miren arriba
-124. no miren arriba (pelicula)
-125. no puedo vivir sin ti
-126. norbit (pelicula)
-127. nowhere
-128. patos
-129. paul
-130. peligro sin codificar (programa del telefe)
-131. pixeles
-132. pixels (pelicula)
-133. Poltergeist: juegos diabólicos -2015- (pelicula)
-134. rada -2026-
-135. re loca
-136. red (RETIRADOS, EXTREMADAMENTE, DUROS)
-137. red 2
-138. regreso al futuro
-139. regreso al futuro 2
-140. regreso al futuro 3
-141. rescatando al soldado ryan (pelicula)
-142. rick y morty (serie)
-143. ricos y malcriados
-144. ruega por nosotros (pelicula)
-145. saw -toda la saga- (pelicula)
-146. sextillizos
-147. sin hijos (pelicula)
-148. solo una noche de juegos
-149. son como niños
-150. son como niños 2
-151. soy rada (pelicula)
-152. spenser
-153. spider man 1-2-3 (pelicula)
-154. spider man de regreso a casa
-155. spider man nuevo universo (pelicula)
-156. stiches
-157. super mario bros la pelicula
-158. taxi driver (pelicula)
-159. ted 1-2 (pelicula)
-160. terror en silent hill (pelicula)
-161. the clown / el payaso del mal
-162. the crown
-163. the ridiculous 6
-164. the truman show (pelicula)
-165. tiempos de valientes (pelicula)
-166. tin y tina (pelicula)
-167. toc toc
-168. todo un parto
-169. un detective en el kinder
-170. un espia y medio
-171. un golpe con estilo (pelicula)
-172. un novio para mi mujer
-173. un vecino gruñon
-174. uncharted fuera del mapa (pelicula)
-175. venom (pelicula)
-176. you (serie)
-177. You Should Have Left/deberias haberte ido (pelicula)
-178. zapatero a tus zapatos
-179. ¿es pastel?
-180.gremlins
-181.500 dias con summer
-182.la ultima casa
-183.clayfase
-184.invasores
-185.krampus
-186.1922
-187.abigail
-188.172 horas
-189.observados
-190.jeeper creeper
-191.chueco (Serie)
-192.barco fantasma
-193.una llamada perdida
-194.efecto mariposa
-195.el mentalista
-196.scream
-197.beetejuice
-198.carry
-199.las aparencias de las cosas
-200.tirador
-201.madraza
-202.parque lezzama
-203.el conjuro (1-2-3-4)
-204.la monja
-205.annabelle (todas)
-206.fragmentado
-207.it 2
-208.el coleccionista de huesos
-209.el aro
-210.las damas primero
-211.ni una palabra
-212.el resplandor
-213.el eternauta (serie)
-214.911: llamada infernal
-215.la noche del demonio (todas)
-216.asi en la tierra como en el infierno
-217.lo dejamos aca
-218.el hoyo
-219.misa de medianoche
-220.la mujer en la ventana
-221.dejar el mundo atras
-222.el secreto de sus ojos
-223.el dictador
-224.gran turismo:de jugador a corredor
-225.no se aceptan devoluciones
-226.golpe bajo el juego final
-227.una pelicula de minecraft
-228.shrek (todas)
-229.virgen a los 40
-230.celular
-231.kung fu panda (todas)
-232.corazon delator
-233.mision imposible (todas)
-234.la terminal
-235.quisiera ser grande
-236.el codigo da vinci
-237.el proyecto adam
-238.la momia (todas)
-239.no te metas con zohan
-240.la chica en el sotano
-
-
-
-
-
-
-
-
-
+3. 172 horas
+4. 1922
+5. 1922 (pelicula)
+6. 4x4
+7. 500 dias con summer
+8. 911: llamada infernal
+9. A Hard Day's Night (pelicula)
+10. Ciegos, sordos y locos (pelicula)
+11. Las aventuras de Jim West
+12. Poltergeist: juegos diabólicos -2015- (pelicula)
+13. You Should Have Left/deberias haberte ido (pelicula)
+14. abigail
+15. al rescate de fondo de bikini
+16. alerta roja
+17. alien -1979- (pelicula)
+18. animal
+19. annabelle (todas)
+20. asi en la tierra como en el infierno
+21. aterrados (pelicula)
+22. barco fantasma
+23. batman el caballero de la noche (pelicula)
+24. beetejuice
+25. cabo de miedo (pelicula)
+26. cadaver
+27. campamento con mama (pelicula)
+28. campamento lakebuttom (serie)
+29. capitan america -td saga- (pelicula)
+30. carry
+31. casados con hijos
+32. casi familia (pelicula)
+33. celular
+34. chikuarotes
+35. chiquito pero peligroso
+36. chueco (Serie)
+37. ciegos, sordos y locos
+38. clayfase
+39. coraline
+40. corazon delator
+41. corazon loco (pelicula)
+42. corre
+43. cuatro dias mas
+44. culto a chucky
+45. death note
+46. dejar el mundo atras
+47. descuida, yo te cuido
+48. desnudo (pelicula)
+49. division palermo
+50. doctor sueño (pelicula)
+51. dr house
+52. efecto mariposa
+53. einstein y la bomba
+54. el abuelo sinverguenza (pelicula)
+55. el aro
+56. el bar
+57. el cadaver de la novia
+58. el cliente (pelicula)
+59. el codigo da vinci
+60. el coleccionista de huesos
+61. el conjuro (1-2-3-4)
+62. el dictador
+63. el dragon de la tetera (pelicula)
+64. el encargado
+65. el eternauta (serie)
+66. el gato del sombrero magico (pelicula)
+67. el hijo (pelicula)
+68. el hoyo
+69. el irlandes
+70. el juego del calamar (serie)
+71. el juego del calamar (serie)
+72. el lorax
+73. el mentalista
+74. el muro negro (pelicula)
+75. el perfecto asesino
+76. el proyecto adam
+77. el resplandor
+78. el robo del siglo
+79. el secreto de sus ojos
+80. el suplente
+81. el telefono del señor harrigan (pelicula)
+82. el telefono negro (pelicula)
+83. el tesoro del amazonas (pelicula)
+84. el valet (pelicula)
+85. eli
+86. emoji la pelicula
+87. en donde estan las rubias
+88. en guerra con mi abuelo (pelicula)
+89. enside -adentro- (pelicula)
+90. envidiosa (serie)
+91. escuadron suicida
+92. forest gump
+93. fractura (pelicula)
+94. fragmentado
+95. gato con botas el ultimo deseo (pelicula)
+96. ghostbusters; apocalipsis fantasma
+97. golpe bajo el juego final
+98. goyo
+99. gran turismo:de jugador a corredor
+100. granizo
+101. gremlins
+102. ha vuelto (pelicula)
+103. hacker
+104. happy gilmore 1-2 (pelicula)
+105. hinoptico (pelicula)
+106. hombre vs abeja
+107. hombres de negro 1-2-3 (pelicula)
+108. home
+109. hotel transilvania transformania (pelicula)
+110. igualita a mi (pelicula)
+111. inseparables
+112. interestelar (pelicula)
+113. invasores
+114. iron man 1-2-3
+115. it (1980)
+116. it (2012)
+117. it 2
+118. jackass 4.5
+119. jeeper creeper
+120. jefe en pañales
+121. jigsaw; el juego continua
+122. jimmy burbuja (pelicula)
+123. johnny english 1-2-3
+124. jujutsu kaisen
+125. jumanji (pelicula)
+126. krampus
+127. kung fu panda (todas)
+128. la autopsia de jane doe
+129. la casa de cera (pelicula)
+130. la casa de los abuelos (pelicula)
+131. la chica en el sotano
+132. la familia mitchell vs las maquinas
+133. la historia real de un falso asesino
+134. la ira de dios
+135. la maldicion de la llorona (pelicula)
+136. la momia (todas)
+137. la monja
+138. la mujer en la ventana
+139. la noche del demonio (todas)
+140. la nona
+141. la peor semana
+142. la terminal
+143. la ultima casa
+144. las aparencias de las cosas
+145. las damas primero
+146. las vacaciones de mr bean
+147. lo dejamos aca
+148. los declaro marido y larry (pelicula)
+149. los doble vida
+150. los hermanos crack (serie)
+151. los juegos del amor (pelicula)
+152. los renglones torcidos de dios
+153. lucifer
+154. madraza
+155. maestro luchador
+156. mama se fue de viaje
+157. marginal
+158. mas alla de la muerte (pelicula)
+159. mas respeto que soy tu madre
+160. masterchef (serie)
+161. matilda
+162. matrimillas
+163. me case con un boludo
+164. mi abuelo es un peligro
+165. mi obra maestra
+166. mi villano favorito 1-2-3-4
+167. minions
+168. misa de medianoche
+169. mision imposible (todas)
+170. muerte en el funeral
+171. nada (serie)
+172. naufrago (pelicula)
+173. netflix la conferencia de tu hermana
+174. ni una palabra
+175. no miren arriba
+176. no miren arriba (pelicula)
+177. no puedo vivir sin ti
+178. no se aceptan devoluciones
+179. no te metas con zohan
+180. norbit (pelicula)
+181. nowhere
+182. observados
+183. parque lezzama
+184. patos
+185. paul
+186. peligro sin codificar (programa del telefe)
+187. pixeles
+188. pixels (pelicula)
+189. quisiera ser grande
+190. rada -2026-
+191. re loca
+192. red (RETIRADOS, EXTREMADAMENTE, DUROS)
+193. red 2
+194. regreso al futuro
+195. regreso al futuro 2
+196. regreso al futuro 3
+197. rescatando al soldado ryan (pelicula)
+198. rick y morty (serie)
+206. solo una noche de juegos
+207. son como niños
+208. son como niños 2
+209. soy rada (pelicula)
+210. spenser
+211. spider man 1-2-3 (pelicula)
+212. spider man de regreso a casa
+213. spider man nuevo universo (pelicula)
+214. stiches
+215. super mario bros la pelicula
+216. taxi driver (pelicula)
+217. ted 1-2 (pelicula)
+218. terror en silent hill (pelicula)
+219. the clown / el payaso del mal
+220. the crown
+221. the ridiculous 6
+222. the truman show (pelicula)
+223. tiempos de valientes (pelicula)
+224. tin y tina (pelicula)
+225. tirador
+226. toc toc
+227. todo un parto
+228. un detective en el kinder
+229. un espia y medio
+230. un golpe con estilo (pelicula)
+231. un novio para mi mujer
+232. un vecino gruñon
+233. una llamada perdida
+234. una pelicula de minecraft
+235. uncharted fuera del mapa (pelicula)
+236. venom (pelicula)
+237. virgen a los 40
+238. you (serie)
+239. zapatero a tus zapatos
+240. ¿es pastel?
